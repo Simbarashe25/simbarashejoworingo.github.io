@@ -3,509 +3,230 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simbarashe Joworingo — Mechanical Engineering</title>
+<title>Simbarashe Joworingo - Mechanical Engineering Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy:    #0f1f3d;
-  --navy2:   #162847;
-  --navy3:   #1e3560;
-  --gold:    #c49a2a;
-  --gold2:   #e0b84a;
-  --white:   #ffffff;
-  --off:     #f5f6f8;
-  --border:  #e2e6ec;
-  --text:    #1a1f2e;
-  --muted:   #5a6478;
-  --light:   #8a93a6;
-}
-*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
-body { background:var(--off); color:var(--text); font-family:'Inter',sans-serif; font-size:15px; line-height:1.65; }
-a { text-decoration:none; color:inherit; }
-img { display:block; max-width:100%; }
-
-/* ─── PAGE SYSTEM ─────────────────────────────────── */
-.pv { display:none; }
-.pv.active { display:block; }
-
-/* ─── NAV ─────────────────────────────────────────── */
-nav {
-  position:sticky; top:0; z-index:300;
-  background:var(--navy);
-  height:64px;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:0 60px;
-  box-shadow:0 2px 20px rgba(0,0,0,.25);
-}
-.nav-brand { display:flex; align-items:center; gap:12px; cursor:pointer; }
-.nav-avatar {
-  width:38px; height:38px; border-radius:50%;
-  object-fit:cover; object-position:center top;
-  border:2px solid rgba(255,255,255,.25);
-}
-.nav-brand-name { font-size:15px; font-weight:700; color:#fff; letter-spacing:.01em; }
-.nav-brand-sub { font-size:10px; color:rgba(255,255,255,.4); letter-spacing:.08em; text-transform:uppercase; }
-.nav-links { display:flex; align-items:center; gap:2px; list-style:none; }
-.nav-links a {
-  font-size:13px; font-weight:500; color:rgba(255,255,255,.65);
-  padding:7px 16px; border-radius:5px;
-  cursor:pointer; transition:all .15s; letter-spacing:.02em;
-}
-.nav-links a:hover { color:#fff; background:rgba(255,255,255,.08); }
-.nav-links a.active { color:#fff; background:rgba(255,255,255,.12); }
-.nav-cv {
-  font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--navy); background:var(--gold2);
-  padding:8px 20px; border-radius:5px;
-  transition:all .15s;
-}
-.nav-cv:hover { background:#f0ca5a; }
-
-/* ─── WRAP ────────────────────────────────────────── */
-.wrap { max-width:1100px; margin:0 auto; padding:0 32px; }
-
-/* ─── HOME ────────────────────────────────────────── */
-/* Hero banner */
-.hero-banner {
-  background:var(--navy);
-  padding:72px 0 80px;
-  position:relative;
-  overflow:hidden;
-}
-.hero-banner::after {
-  content:'';
-  position:absolute; inset:0;
-  background:radial-gradient(ellipse at 80% 50%, rgba(196,154,42,.12) 0%, transparent 65%);
-  pointer-events:none;
-}
-.hero-inner {
-  display:grid;
-  grid-template-columns:1fr 260px;
-  gap:60px;
-  align-items:center;
-  position:relative; z-index:1;
-}
-.hero-eyebrow {
-  font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-  color:var(--gold2); margin-bottom:16px;
-  display:flex; align-items:center; gap:10px;
-}
-.hero-eyebrow::before { content:''; width:28px; height:2px; background:var(--gold); }
-.hero-name {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(40px,5vw,62px); font-weight:800;
-  color:#fff; line-height:1.1; margin-bottom:20px; letter-spacing:-.5px;
-}
-.hero-tagline {
-  font-size:17px; font-weight:300; color:rgba(255,255,255,.65);
-  max-width:520px; line-height:1.75; margin-bottom:36px;
-}
-.hero-pills { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:40px; }
-.pill {
-  font-size:12px; font-weight:600; letter-spacing:.04em;
-  color:rgba(255,255,255,.75);
-  border:1px solid rgba(255,255,255,.18);
-  padding:5px 14px; border-radius:20px;
-  background:rgba(255,255,255,.06);
-}
-.hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
-.btn-gold {
-  font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
-  background:var(--gold); color:#fff;
-  padding:12px 28px; border-radius:6px; cursor:pointer;
-  transition:all .15s; border:none;
-}
-.btn-gold:hover { background:var(--gold2); }
-.btn-ghost {
-  font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
-  background:transparent; color:rgba(255,255,255,.8);
-  padding:12px 28px; border-radius:6px; cursor:pointer;
-  border:1.5px solid rgba(255,255,255,.25); transition:all .15s;
-}
-.btn-ghost:hover { border-color:rgba(255,255,255,.6); color:#fff; }
-/* right card */
-.hero-card {
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:12px; overflow:hidden;
-}
-.hero-photo { width:100%; height:220px; object-fit:cover; object-position:center top; }
-.hero-card-body { padding:18px 20px; }
-.hero-card-stat {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
-}
-.hero-card-stat:last-child { border-bottom:none; }
-.hcs-label { font-size:11px; color:rgba(255,255,255,.4); letter-spacing:.06em; text-transform:uppercase; }
-.hcs-val { font-size:14px; font-weight:700; color:#fff; }
-
-/* ─── SECTION COMMON ──────────────────────────────── */
-.section { padding:64px 0; }
-.section-header {
-  display:flex; align-items:flex-end; justify-content:space-between;
-  margin-bottom:40px; padding-bottom:18px;
-  border-bottom:2px solid var(--border);
-}
-.section-heading {
-  font-family:'Playfair Display',serif;
-  font-size:28px; font-weight:700; color:var(--navy); line-height:1.2;
-}
-.section-sub { font-size:13px; color:var(--light); margin-top:4px; }
-.see-all {
-  font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--navy); border-bottom:2px solid var(--navy); padding-bottom:1px;
-  cursor:pointer; white-space:nowrap; transition:color .15s;
-}
-.see-all:hover { color:var(--gold); border-color:var(--gold); }
-
-/* ─── PROJ CARDS (home) ───────────────────────────── */
-.proj-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
-.pc {
-  background:var(--white); border:1px solid var(--border);
-  border-radius:10px; overflow:hidden; cursor:pointer;
-  transition:box-shadow .2s, transform .2s;
-  display:flex; flex-direction:column;
-}
-.pc:hover { box-shadow:0 12px 40px rgba(15,31,61,.12); transform:translateY(-4px); }
-.pc-img {
-  height:200px; overflow:hidden; background:#eef0f4;
-  position:relative;
-}
-.pc-img img { width:100%; height:100%; object-fit:cover; transition:transform .35s; }
-.pc:hover .pc-img img { transform:scale(1.05); }
-.pc-ph {
-  width:100%; height:100%;
-  background:linear-gradient(135deg,var(--off) 0%,#dde1ea 100%);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
-}
-.pc-ph-ico { font-size:40px; }
-.pc-ph-lbl { font-size:11px; color:var(--light); letter-spacing:.1em; text-transform:uppercase; }
-.pc-cat-badge {
-  position:absolute; top:12px; left:12px;
-  font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--navy); background:var(--gold2);
-  padding:3px 10px; border-radius:20px;
-}
-.pc-body { padding:20px 22px 24px; flex:1; display:flex; flex-direction:column; }
-.pc-title {
-  font-family:'Playfair Display',serif;
-  font-size:18px; font-weight:700; color:var(--navy);
-  line-height:1.3; margin-bottom:8px;
-}
-.pc-desc { font-size:13px; color:var(--muted); line-height:1.7; flex:1; }
-.pc-footer {
-  margin-top:16px; padding-top:14px; border-top:1px solid var(--border);
-  display:flex; justify-content:space-between; align-items:center;
-}
-.pc-tools { display:flex; gap:5px; flex-wrap:wrap; }
-.tag {
-  font-size:11px; color:var(--muted);
-  background:var(--off); border:1px solid var(--border);
-  padding:2px 9px; border-radius:4px;
-}
-.pc-arrow {
-  font-size:18px; color:var(--navy3); font-weight:700;
-  transition:transform .15s;
-}
-.pc:hover .pc-arrow { transform:translateX(4px); }
-
-/* ─── EXPERIENCE ──────────────────────────────────── */
-.exp-list { display:flex; flex-direction:column; gap:0; }
-.exp-item {
-  display:grid; grid-template-columns:120px 1fr;
-  gap:0; padding:28px 0;
-  border-bottom:1px solid var(--border);
-}
-.exp-item:last-child { border-bottom:none; }
-.exp-left { padding-right:28px; padding-top:4px; }
-.exp-date { font-size:12px; font-weight:700; color:var(--light); letter-spacing:.04em; margin-bottom:6px; }
-.exp-icon {
-  width:46px; height:46px; border-radius:10px;
-  background:var(--navy); display:flex; align-items:center; justify-content:center;
-  font-size:20px; border:2px solid var(--border);
-}
-.exp-right {}
-.exp-org { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:3px; }
-.exp-role { font-size:18px; font-weight:700; color:var(--navy); margin-bottom:8px; line-height:1.3; }
-.exp-desc { font-size:14px; color:var(--muted); line-height:1.75; }
-.exp-img-block {
-  margin-top:14px; border-radius:8px; overflow:hidden;
-  border:1px solid var(--border); background:var(--off);
-}
-.exp-img-block img { width:100%; height:180px; object-fit:cover; }
-.ph-row {
-  height:160px; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; gap:8px;
-  background:linear-gradient(135deg,var(--off),#dde1ea);
-}
-.ph-row span { font-size:26px; }
-.ph-row p { font-size:11px; color:var(--light); letter-spacing:.08em; text-transform:uppercase; }
-
-/* ─── PROJECTS PAGE ───────────────────────────────── */
-.page-banner {
-  background:var(--navy); padding:52px 0;
-  margin-bottom:0;
-}
-.page-banner-inner { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; }
-.page-banner h1 {
-  font-family:'Playfair Display',serif;
-  font-size:44px; font-weight:800; color:#fff; line-height:1.1;
-}
-.page-banner p { font-size:14px; color:rgba(255,255,255,.5); margin-top:8px; }
-.filter-row {
-  background:var(--white); border-bottom:1px solid var(--border);
-  padding:0 60px; display:flex; gap:0; position:sticky; top:64px; z-index:100;
-}
-.ftab {
-  font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--light); padding:16px 22px; cursor:pointer; border:none;
-  border-bottom:2px solid transparent; margin-bottom:-1px;
-  background:none; transition:all .15s;
-}
-.ftab:hover { color:var(--navy); }
-.ftab.active { color:var(--navy); border-bottom-color:var(--navy); }
-.all-proj { padding:48px 0 80px; }
-.all-proj-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-
-/* ─── PROJECT DETAIL ──────────────────────────────── */
-#page-project-detail { background:var(--off); }
-.detail-banner {
-  background:var(--navy); padding:48px 0;
-}
-.back-link {
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  color:rgba(255,255,255,.5); cursor:pointer; transition:color .15s;
-  margin-bottom:28px;
-}
-.back-link:hover { color:#fff; }
-.detail-banner-cat { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--gold2); margin-bottom:12px; }
-.detail-banner-title {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(28px,4vw,44px); font-weight:800; color:#fff;
-  line-height:1.15; max-width:680px;
-}
-.detail-body { padding:56px 0 80px; }
-.detail-layout { display:grid; grid-template-columns:1fr 300px; gap:48px; align-items:start; }
-.detail-hero {
-  border-radius:12px; overflow:hidden; border:1px solid var(--border);
-  background:var(--white); margin-bottom:36px;
-}
-.detail-hero-ph {
-  height:400px; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; gap:16px;
-  background:linear-gradient(135deg,var(--off),#d8dce8);
-}
-.detail-hero-ph .big-ico { font-size:72px; }
-.detail-hero-ph p { font-size:12px; color:var(--light); letter-spacing:.1em; text-transform:uppercase; }
-.detail-section-title {
-  font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--navy); margin-bottom:14px; padding-bottom:10px;
-  border-bottom:2px solid var(--navy);
-  display:flex; align-items:center; gap:10px;
-}
-.detail-intro {
-  font-size:16px; color:var(--muted); line-height:1.85;
-  margin-bottom:36px;
-}
-.detail-ul { list-style:none; margin-bottom:36px; }
-.detail-ul li {
-  font-size:14px; color:var(--text); line-height:1.75;
-  padding:9px 0 9px 22px; border-bottom:1px solid #eef0f4;
-  position:relative;
-}
-.detail-ul li::before {
-  content:''; position:absolute; left:0; top:19px;
-  width:8px; height:2px; background:var(--gold);
-}
-.detail-extra { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px; }
-.detail-extra .ph-row { border-radius:8px; border:1px solid var(--border); height:140px; }
-/* sidebar */
-.sidebar-card {
-  background:var(--white); border:1px solid var(--border);
-  border-radius:10px; overflow:hidden; margin-bottom:20px;
-}
-.sc-head {
-  background:var(--navy); padding:12px 18px;
-  font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
-  color:rgba(255,255,255,.6);
-}
-.sc-body { padding:16px 18px; }
-.chips { display:flex; flex-wrap:wrap; gap:6px; }
-.chip {
-  font-size:11px; color:var(--navy);
-  background:var(--off); border:1px solid var(--border);
-  padding:4px 12px; border-radius:20px; font-weight:500;
-}
-.sc-stat { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); font-size:13px; }
-.sc-stat:last-child { border-bottom:none; }
-.sc-stat-l { color:var(--light); }
-.sc-stat-r { font-weight:700; color:var(--navy); text-align:right; }
-
-/* ─── WORKSHOPS PAGE ──────────────────────────────── */
-.ws-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; padding:48px 0 80px; }
-.ws-card {
-  background:var(--white); border:1px solid var(--border);
-  border-radius:10px; overflow:hidden; cursor:pointer;
-  transition:box-shadow .2s, transform .2s;
-}
-.ws-card:hover { box-shadow:0 12px 40px rgba(15,31,61,.12); transform:translateY(-4px); }
-.ws-img { height:220px; overflow:hidden; background:var(--off); position:relative; }
-.ws-img img { width:100%; height:100%; object-fit:cover; transition:transform .3s; }
-.ws-card:hover .ws-img img { transform:scale(1.05); }
-.ws-ph {
-  width:100%; height:100%;
-  background:linear-gradient(135deg,var(--off),#dde1ea);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
-}
-.ws-badge {
-  position:absolute; top:12px; left:12px;
-  font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  color:#fff; background:var(--navy);
-  padding:4px 12px; border-radius:20px;
-}
-.ws-body { padding:22px 24px 26px; }
-.ws-org { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:5px; }
-.ws-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--navy); margin-bottom:10px; line-height:1.3; }
-.ws-desc { font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:16px; }
-.ws-tags { display:flex; flex-wrap:wrap; gap:6px; }
-.ws-tag { font-size:11px; color:var(--muted); background:var(--off); border:1px solid var(--border); padding:3px 10px; border-radius:4px; }
-
-/* Workshop detail page */
-.ws-detail-body { padding:56px 0 80px; }
-.ws-detail-layout { display:grid; grid-template-columns:1fr 300px; gap:48px; align-items:start; }
-.ws-hero {
-  border-radius:12px; overflow:hidden; border:1px solid var(--border);
-  background:var(--white); margin-bottom:36px;
-}
-.ws-hero img { width:100%; height:380px; object-fit:cover; }
-.ws-hero-ph {
-  height:380px; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; gap:16px;
-  background:linear-gradient(135deg,var(--off),#d8dce8);
-}
-.ws-hero-ph .big-ico { font-size:72px; }
-.ws-hero-ph p { font-size:12px; color:var(--light); letter-spacing:.1em; text-transform:uppercase; }
-
-/* ─── ABOUT ───────────────────────────────────────── */
-.about-body { padding:64px 0 80px; }
-.about-grid { display:grid; grid-template-columns:1fr 320px; gap:52px; align-items:start; }
-.about-text h2 { font-family:'Playfair Display',serif; font-size:34px; font-weight:700; color:var(--navy); margin-bottom:22px; line-height:1.2; }
-.about-text p { font-size:15px; color:var(--muted); line-height:1.85; margin-bottom:16px; }
-.about-photo { border-radius:10px; overflow:hidden; border:1px solid var(--border); margin-bottom:20px; }
-.about-photo img { width:100%; height:280px; object-fit:cover; object-position:center top; }
-.about-stats { background:var(--navy); border-radius:10px; padding:0 24px; }
-.as-row { padding:18px 0; border-bottom:1px solid rgba(255,255,255,.08); text-align:center; }
-.as-row:last-child { border-bottom:none; }
-.as-num { font-family:'Playfair Display',serif; font-size:36px; font-weight:700; color:#fff; line-height:1; margin-bottom:4px; }
-.as-lbl { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.35); }
-.sk-block { margin-top:36px; }
-.sk-head { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--navy); margin-bottom:14px; padding-bottom:8px; border-bottom:2px solid var(--navy); }
-.sk-group { margin-bottom:16px; }
-.sg-lbl { font-size:12px; font-weight:700; color:var(--light); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px; }
-.certs-table { width:100%; border-collapse:collapse; font-size:13px; margin-top:16px; }
-.certs-table th { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--light); padding:8px 12px; border-bottom:2px solid var(--border); text-align:left; }
-.certs-table td { padding:10px 12px; border-bottom:1px solid var(--border); color:var(--muted); vertical-align:top; }
-.certs-table td:first-child { font-weight:600; color:var(--navy); }
-.certs-table a { color:var(--navy); font-size:11px; border-bottom:1px solid var(--border); }
-.certs-table a:hover { color:var(--gold); }
-
-/* ─── GALLERY ─────────────────────────────────────── */
-.gal-body { padding:48px 0 80px; }
-.gal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-.gal-item { border-radius:8px; overflow:hidden; aspect-ratio:4/3; cursor:pointer; position:relative; border:1px solid var(--border); background:var(--off); transition:transform .2s, box-shadow .2s; }
-.gal-item:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(15,31,61,.14); }
-.gal-item img { width:100%; height:100%; object-fit:cover; }
-.gal-ov { position:absolute; inset:0; background:rgba(15,31,61,.65); display:flex; align-items:flex-end; padding:16px; opacity:0; transition:opacity .2s; }
-.gal-item:hover .gal-ov { opacity:1; }
-.gal-cap { font-size:13px; font-weight:700; color:#fff; line-height:1.3; }
-.gal-ph { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; }
-.gal-ph-ico { font-size:24px; opacity:.4; }
-.gal-ph-txt { font-size:10px; color:var(--light); text-transform:uppercase; letter-spacing:.1em; text-align:center; padding:0 10px; }
-
-/* ─── CONTACT ─────────────────────────────────────── */
-.contact-body { padding:64px 0 80px; }
-.contact-grid { display:grid; grid-template-columns:1fr 360px; gap:52px; align-items:start; }
-.contact-text h2 { font-family:'Playfair Display',serif; font-size:34px; font-weight:700; color:var(--navy); margin-bottom:14px; }
-.contact-text p { font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:28px; }
-.contact-item { display:flex; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid var(--border); }
-.contact-item:last-child { border-bottom:none; }
-.c-icon { width:42px; height:42px; border-radius:8px; background:var(--navy); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
-.c-lbl { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--light); margin-bottom:2px; }
-.c-val { font-size:14px; font-weight:600; color:var(--navy); }
-.contact-item a:hover .c-val { color:var(--gold); }
-.avail-card { background:var(--navy); border-radius:10px; padding:28px 28px 24px; }
-.avail-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
-.green-dot { width:8px; height:8px; background:#4ade80; border-radius:50%; animation:pulse 2s infinite; flex-shrink:0; }
-@keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
-.avail-title { font-size:17px; font-weight:700; color:#fff; }
-.avail-list { list-style:none; margin-bottom:24px; }
-.avail-list li { font-size:13px; color:rgba(255,255,255,.55); padding:7px 0; border-bottom:1px solid rgba(255,255,255,.07); display:flex; align-items:center; gap:10px; }
-.avail-list li::before { content:''; width:4px; height:4px; background:var(--gold2); border-radius:50%; flex-shrink:0; }
-.avail-btn { display:block; width:100%; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; text-align:center; background:var(--gold); color:#fff; padding:13px; border-radius:6px; transition:background .15s; }
-.avail-btn:hover { background:var(--gold2); }
-
-/* ─── LIGHTBOX ────────────────────────────────────── */
-.lb { display:none; position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:999; align-items:center; justify-content:center; padding:24px; }
-.lb.open { display:flex; }
-.lb-inner { max-width:860px; width:100%; }
-.lb-inner img { width:100%; border-radius:8px; max-height:80vh; object-fit:contain; }
-.lb-cap { font-size:13px; color:rgba(255,255,255,.5); text-align:center; margin-top:14px; }
-.lb-x { position:fixed; top:20px; right:28px; font-size:28px; color:#fff; cursor:pointer; opacity:.6; background:none; border:none; transition:opacity .15s; }
-.lb-x:hover { opacity:1; }
-
-/* ─── FOOTER ──────────────────────────────────────── */
-footer { background:var(--navy); padding:22px 60px; display:flex; justify-content:space-between; align-items:center; font-size:12px; color:rgba(255,255,255,.3); letter-spacing:.04em; }
-
-/* ─── RESPONSIVE ──────────────────────────────────── */
-@media(max-width:900px) {
-  nav,footer { padding:0 20px; }
-  footer { padding:16px 20px; }
-  .wrap { padding:0 20px; }
-  .filter-row { padding:0 20px; overflow-x:auto; }
-  .hero-inner,.about-grid,.detail-layout,.ws-detail-layout,.contact-grid { grid-template-columns:1fr; }
-  .all-proj-grid { grid-template-columns:repeat(2,1fr); }
-  .ws-grid { grid-template-columns:1fr; }
-  .gal-grid { grid-template-columns:repeat(2,1fr); }
-  .exp-item { grid-template-columns:90px 1fr; }
-  footer { flex-direction:column; gap:6px; text-align:center; }
-}
-@media(max-width:600px) {
-  .proj-grid,.all-proj-grid,.gal-grid { grid-template-columns:1fr; }
-  .nav-brand-sub { display:none; }
-  .page-banner h1 { font-size:32px; }
-}
+:root{--navy:#0f1f3d;--navy2:#162847;--navy3:#1e3560;--gold:#c49a2a;--gold2:#e0b84a;--white:#ffffff;--off:#f5f6f8;--border:#e2e6ec;--text:#1a1f2e;--muted:#5a6478;--light:#8a93a6}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--off);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.65}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.pv{display:none}.pv.active{display:block}
+nav{position:sticky;top:0;z-index:300;background:var(--navy);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;box-shadow:0 2px 20px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:12px;cursor:pointer}
+.nav-avatar{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.25)}
+.nav-brand-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:.01em}
+.nav-brand-sub{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,.65);padding:7px 16px;border-radius:5px;cursor:pointer;transition:all .15s;letter-spacing:.02em;user-select:none}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.nav-cv{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);background:var(--gold2);padding:8px 20px;border-radius:5px;transition:all .15s}
+.nav-cv:hover{background:#f0ca5a}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+.hero-banner{background:var(--navy);padding:72px 0 80px;position:relative;overflow:hidden}
+.hero-banner::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(196,154,42,.12) 0%,transparent 65%);pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1fr 260px;gap:60px;align-items:center;position:relative;z-index:1}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:2px;background:var(--gold)}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,62px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;letter-spacing:-.5px}
+.hero-tagline{font-size:17px;font-weight:300;color:rgba(255,255,255,.65);max-width:520px;line-height:1.75;margin-bottom:36px}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.pill{font-size:12px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.18);padding:5px 14px;border-radius:20px;background:rgba(255,255,255,.06)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-gold{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--gold);color:#fff;padding:12px 28px;border-radius:6px;cursor:pointer;transition:all .15s;border:none;display:inline-block}
+.btn-gold:hover{background:var(--gold2)}
+.btn-ghost{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:transparent;color:rgba(255,255,255,.8);padding:12px 28px;border-radius:6px;cursor:pointer;border:1.5px solid rgba(255,255,255,.25);transition:all .15s;display:inline-block}
+.btn-ghost:hover{border-color:rgba(255,255,255,.6);color:#fff}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden}
+.hero-photo{width:100%;height:220px;object-fit:cover;object-position:center top}
+.hero-card-body{padding:18px 20px}
+.hero-card-stat{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.hero-card-stat:last-child{border-bottom:none}
+.hcs-label{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase}
+.hcs-val{font-size:14px;font-weight:700;color:#fff}
+.section{padding:64px 0}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;padding-bottom:18px;border-bottom:2px solid var(--border)}
+.section-heading{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);line-height:1.2}
+.section-sub{font-size:13px;color:var(--light);margin-top:4px}
+.see-all{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:1px;cursor:pointer;white-space:nowrap;transition:color .15s;user-select:none}
+.see-all:hover{color:var(--gold);border-color:var(--gold)}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.pc{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+.pc:hover{box-shadow:0 12px 40px rgba(15,31,61,.12);transform:translateY(-4px)}
+.pc-img{height:200px;overflow:hidden;background:#eef0f4;position:relative}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.pc:hover .pc-img img{transform:scale(1.05)}
+.pc-ph{width:100%;height:100%;background:linear-gradient(135deg,var(--off) 0%,#dde1ea 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.pc-ph-ico{font-size:40px}
+.pc-ph-lbl{font-size:11px;color:var(--light);letter-spacing:.1em;text-transform:uppercase}
+.pc-cat-badge{position:absolute;top:12px;left:12px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:var(--gold2);padding:3px 10px;border-radius:20px}
+.pc-body{padding:20px 22px 24px;flex:1;display:flex;flex-direction:column}
+.pc-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:8px}
+.pc-desc{font-size:13px;color:var(--muted);line-height:1.7;flex:1}
+.pc-footer{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.pc-tools{display:flex;gap:5px;flex-wrap:wrap}
+.tag{font-size:11px;color:var(--muted);background:var(--off);border:1px solid var(--border);padding:2px 9px;border-radius:4px}
+.pc-arrow{font-size:18px;color:var(--navy3);font-weight:700;transition:transform .15s}
+.pc:hover .pc-arrow{transform:translateX(4px)}
+.exp-list{display:flex;flex-direction:column}
+.exp-item{display:grid;grid-template-columns:120px 1fr;gap:0;padding:28px 0;border-bottom:1px solid var(--border)}
+.exp-item:last-child{border-bottom:none}
+.exp-left{padding-right:28px;padding-top:4px}
+.exp-date{font-size:12px;font-weight:700;color:var(--light);letter-spacing:.04em;margin-bottom:6px}
+.exp-icon{width:46px;height:46px;border-radius:10px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:20px;border:2px solid var(--border)}
+.exp-org{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.exp-role{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3}
+.exp-desc{font-size:14px;color:var(--muted);line-height:1.75}
+.exp-img-block{margin-top:14px;border-radius:8px;overflow:hidden;border:1px solid var(--border);background:var(--off)}
+.exp-img-block img{width:100%;height:180px;object-fit:cover}
+.ph-row{height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--off),#dde1ea)}
+.ph-row span{font-size:26px}
+.ph-row p{font-size:11px;color:var(--light);letter-spacing:.08em;text-transform:uppercase}
+.page-banner{background:var(--navy);padding:52px 0}
+.page-banner h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:#fff;line-height:1.1}
+.page-banner p{font-size:14px;color:rgba(255,255,255,.5);margin-top:8px}
+.filter-row{background:var(--white);border-bottom:1px solid var(--border);padding:0 60px;display:flex;gap:0;position:sticky;top:64px;z-index:100;overflow-x:auto}
+.ftab{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--light);padding:16px 22px;cursor:pointer;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;transition:all .15s;white-space:nowrap}
+.ftab:hover{color:var(--navy)}
+.ftab.active{color:var(--navy);border-bottom-color:var(--navy)}
+.all-proj{padding:48px 0 80px}
+.all-proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.detail-banner{background:var(--navy);padding:48px 0}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);cursor:pointer;transition:color .15s;margin-bottom:28px;user-select:none}
+.back-link:hover{color:#fff}
+.detail-banner-cat{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);margin-bottom:12px}
+.detail-banner-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:800;color:#fff;line-height:1.15;max-width:680px}
+.detail-body{padding:56px 0 80px}
+.detail-layout{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start}
+.detail-hero{border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--white);margin-bottom:36px}
+.detail-hero-ph{height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(135deg,var(--off),#d8dce8)}
+.detail-hero-ph .big-ico{font-size:72px}
+.detail-hero-ph p{font-size:12px;color:var(--light);letter-spacing:.1em;text-transform:uppercase}
+.detail-section-title{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--navy)}
+.detail-intro{font-size:16px;color:var(--muted);line-height:1.85;margin-bottom:36px}
+.detail-ul{list-style:none;margin-bottom:36px}
+.detail-ul li{font-size:14px;color:var(--text);line-height:1.75;padding:9px 0 9px 22px;border-bottom:1px solid #eef0f4;position:relative}
+.detail-ul li::before{content:'';position:absolute;left:0;top:19px;width:8px;height:2px;background:var(--gold)}
+.detail-extra{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.detail-extra .ph-row{border-radius:8px;border:1px solid var(--border);height:140px}
+.sidebar-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px}
+.sc-head{background:var(--navy);padding:12px 18px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.sc-body{padding:16px 18px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:11px;color:var(--navy);background:var(--off);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-weight:500}
+.sc-stat{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.sc-stat:last-child{border-bottom:none}
+.sc-stat-l{color:var(--light)}
+.sc-stat-r{font-weight:700;color:var(--navy);text-align:right;max-width:60%}
+.ws-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;padding:48px 0 80px}
+.ws-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .2s}
+.ws-card:hover{box-shadow:0 12px 40px rgba(15,31,61,.12);transform:translateY(-4px)}
+.ws-img{height:220px;overflow:hidden;background:var(--off);position:relative}
+.ws-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.ws-card:hover .ws-img img{transform:scale(1.05)}
+.ws-ph{width:100%;height:100%;background:linear-gradient(135deg,var(--off),#dde1ea);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.ws-badge{position:absolute;top:12px;left:12px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--navy);padding:4px 12px;border-radius:20px}
+.ws-body{padding:22px 24px 26px}
+.ws-org{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.ws-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.3}
+.ws-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.ws-tags{display:flex;flex-wrap:wrap;gap:6px}
+.ws-tag{font-size:11px;color:var(--muted);background:var(--off);border:1px solid var(--border);padding:3px 10px;border-radius:4px}
+.ws-detail-body{padding:56px 0 80px}
+.ws-detail-layout{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start}
+.ws-hero{border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--white);margin-bottom:36px}
+.ws-hero img{width:100%;height:380px;object-fit:cover;display:block}
+.ws-hero-ph{height:380px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(135deg,var(--off),#d8dce8)}
+.ws-hero-ph .big-ico{font-size:72px}
+.ws-hero-ph p{font-size:12px;color:var(--light);letter-spacing:.1em;text-transform:uppercase}
+.about-body{padding:64px 0 80px}
+.about-grid{display:grid;grid-template-columns:1fr 320px;gap:52px;align-items:start}
+.about-text h2{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--navy);margin-bottom:22px;line-height:1.2}
+.about-text p{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:16px}
+.about-photo{border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:20px}
+.about-photo img{width:100%;height:280px;object-fit:cover;object-position:center top}
+.about-stats{background:var(--navy);border-radius:10px;padding:0 24px}
+.as-row{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);text-align:center}
+.as-row:last-child{border-bottom:none}
+.as-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#fff;line-height:1;margin-bottom:4px}
+.as-lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.sk-block{margin-top:36px}
+.sk-head{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--navy)}
+.sk-group{margin-bottom:16px}
+.sg-lbl{font-size:12px;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.certs-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px}
+.certs-table th{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--light);padding:8px 12px;border-bottom:2px solid var(--border);text-align:left}
+.certs-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top}
+.certs-table td:first-child{font-weight:600;color:var(--navy)}
+.certs-table a{color:var(--navy);font-size:11px;border-bottom:1px solid var(--border)}
+.certs-table a:hover{color:var(--gold)}
+.gal-body{padding:48px 0 80px}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gal-item{border-radius:8px;overflow:hidden;aspect-ratio:4/3;cursor:pointer;position:relative;border:1px solid var(--border);background:var(--off);transition:transform .2s,box-shadow .2s}
+.gal-item:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(15,31,61,.14)}
+.gal-item img{width:100%;height:100%;object-fit:cover}
+.gal-ov{position:absolute;inset:0;background:rgba(15,31,61,.65);display:flex;align-items:flex-end;padding:16px;opacity:0;transition:opacity .2s}
+.gal-item:hover .gal-ov{opacity:1}
+.gal-cap{font-size:13px;font-weight:700;color:#fff;line-height:1.3}
+.gal-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.gal-ph-ico{font-size:24px;opacity:.4}
+.gal-ph-txt{font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:.1em;text-align:center;padding:0 10px}
+.contact-body{padding:64px 0 80px}
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:52px;align-items:start}
+.contact-text h2{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--navy);margin-bottom:14px}
+.contact-text p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:28px}
+.contact-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
+.contact-item:last-child{border-bottom:none}
+.c-icon{width:42px;height:42px;border-radius:8px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.c-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--light);margin-bottom:2px}
+.c-val{font-size:14px;font-weight:600;color:var(--navy)}
+.avail-card{background:var(--navy);border-radius:10px;padding:28px 28px 24px}
+.avail-head{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.green-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.avail-title{font-size:17px;font-weight:700;color:#fff}
+.avail-list{list-style:none;margin-bottom:24px}
+.avail-list li{font-size:13px;color:rgba(255,255,255,.55);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:10px}
+.avail-list li::before{content:'';width:4px;height:4px;background:var(--gold2);border-radius:50%;flex-shrink:0}
+.avail-btn{display:block;width:100%;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:center;background:var(--gold);color:#fff;padding:13px;border-radius:6px;transition:background .15s}
+.avail-btn:hover{background:var(--gold2)}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:999;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb-inner{max-width:860px;width:100%}
+.lb-inner img{width:100%;border-radius:8px;max-height:80vh;object-fit:contain}
+.lb-cap{font-size:13px;color:rgba(255,255,255,.5);text-align:center;margin-top:14px}
+.lb-x{position:fixed;top:20px;right:28px;font-size:32px;color:#fff;cursor:pointer;opacity:.6;background:none;border:none;transition:opacity .15s;line-height:1}
+.lb-x:hover{opacity:1}
+footer{background:var(--navy);padding:22px 60px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.3);letter-spacing:.04em}
+@media(max-width:900px){nav,footer{padding:0 20px}.wrap{padding:0 20px}.filter-row{padding:0 20px}.hero-inner,.about-grid,.detail-layout,.ws-detail-layout,.contact-grid{grid-template-columns:1fr}.all-proj-grid{grid-template-columns:repeat(2,1fr)}.ws-grid{grid-template-columns:1fr}.gal-grid{grid-template-columns:repeat(2,1fr)}.exp-item{grid-template-columns:90px 1fr}footer{flex-direction:column;gap:6px;text-align:center;padding:16px}}
+@media(max-width:600px){.proj-grid,.all-proj-grid,.gal-grid{grid-template-columns:1fr}.nav-brand-sub{display:none}.page-banner h1{font-size:32px}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-brand" onclick="navigate('home')">
-    <img class="nav-avatar" src="photo.jpg" alt="SJ" />
+  <div class="nav-brand" id="nb">
+    <img class="nav-avatar" src="photo.jpg" alt="SJ">
     <div>
       <div class="nav-brand-name">Simbarashe Joworingo</div>
       <div class="nav-brand-sub">Mechanical Engineering</div>
     </div>
   </div>
   <ul class="nav-links">
-    <li><a onclick="navigate('home')" data-page="home">Home</a></li>
-    <li><a onclick="navigate('projects')" data-page="projects">Projects</a></li>
-    <li><a onclick="navigate('workshops')" data-page="workshops">Workshops</a></li>
-    <li><a onclick="navigate('about')" data-page="about">About</a></li>
-    <li><a onclick="navigate('gallery')" data-page="gallery">Gallery</a></li>
-    <li><a onclick="navigate('contact')" data-page="contact">Contact</a></li>
+    <li><a id="nl-home">Home</a></li>
+    <li><a id="nl-projects">Projects</a></li>
+    <li><a id="nl-workshops">Workshops</a></li>
+    <li><a id="nl-about">About</a></li>
+    <li><a id="nl-gallery">Gallery</a></li>
+    <li><a id="nl-contact">Contact</a></li>
   </ul>
-  <a href="cv.pdf" target="_blank" class="nav-cv">View CV ↗</a>
+  <a href="cv.pdf" target="_blank" class="nav-cv">View CV</a>
 </nav>
 
-<!-- ══════════════════════════════════════════════════════════ -->
-<!--  HOME                                                      -->
-<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HOME -->
 <div id="page-home" class="pv active">
-
-  <!-- Hero -->
   <div class="hero-banner">
     <div class="wrap">
       <div class="hero-inner">
@@ -520,12 +241,12 @@ footer { background:var(--navy); padding:22px 60px; display:flex; justify-conten
             <span class="pill">CGPA 8.84 / 10</span>
           </div>
           <div class="hero-actions">
-            <span class="btn-gold" onclick="navigate('projects')">View Projects →</span>
+            <span class="btn-gold" id="hero-proj-btn">View Projects</span>
             <a href="cv.pdf" target="_blank" class="btn-ghost">Download CV</a>
           </div>
         </div>
         <div class="hero-card">
-          <img class="hero-photo" src="photo.jpg" alt="Simbarashe Joworingo" />
+          <img class="hero-photo" src="photo.jpg" alt="Simbarashe Joworingo">
           <div class="hero-card-body">
             <div class="hero-card-stat"><span class="hcs-label">Institution</span><span class="hcs-val">ACET / JNTUK</span></div>
             <div class="hero-card-stat"><span class="hcs-label">CGPA</span><span class="hcs-val">8.84 / 10.0</span></div>
@@ -536,216 +257,125 @@ footer { background:var(--navy); padding:22px 60px; display:flex; justify-conten
       </div>
     </div>
   </div>
-
-  <!-- Featured Projects -->
   <div class="section" style="background:var(--white)">
     <div class="wrap">
       <div class="section-header">
-        <div>
-          <div class="section-heading">Featured Projects</div>
-          <div class="section-sub">Click a card to view the full project</div>
-        </div>
-        <span class="see-all" onclick="navigate('projects')">All Projects →</span>
+        <div><div class="section-heading">Featured Projects</div><div class="section-sub">Click a card to view the full project</div></div>
+        <span class="see-all" id="see-all-btn">All Projects &rarr;</span>
       </div>
       <div class="proj-grid">
-        <div class="pc" onclick="openProject('uav')">
-          <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">✈️</span><span class="pc-ph-lbl">Upload: uav.jpg</span></div><span class="pc-cat-badge">CAD & Design</span></div>
-          <div class="pc-body">
-            <div class="pc-title">UAV System Design & Integration</div>
-            <div class="pc-desc">Fixed-wing UAV from scratch — SolidWorks fuselage, aerodynamic trade-off analysis, DfAM, and avionics wiring layout.</div>
-            <div class="pc-footer">
-              <div class="pc-tools"><span class="tag">SolidWorks</span><span class="tag">Aerodynamics</span><span class="tag">DfAM</span></div>
-              <span class="pc-arrow">→</span>
-            </div>
-          </div>
+        <div class="pc" id="pc-uav">
+          <div class="pc-img"><img src="uav.jpg" alt="UAV"><span class="pc-cat-badge">CAD &amp; Design</span></div>
+          <div class="pc-body"><div class="pc-title">UAV System Design &amp; Integration</div><div class="pc-desc">Fixed-wing UAV from scratch &mdash; SolidWorks fuselage, aerodynamic trade-off analysis, DfAM, and avionics wiring layout.</div>
+          <div class="pc-footer"><div class="pc-tools"><span class="tag">SolidWorks</span><span class="tag">Aerodynamics</span><span class="tag">DfAM</span></div><span class="pc-arrow">&rarr;</span></div></div>
         </div>
-        <div class="pc" onclick="openProject('engine')">
-          <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">🔥</span><span class="pc-ph-lbl">Upload: engine.jpg</span></div><span class="pc-cat-badge">Simulation</span></div>
-          <div class="pc-body">
-            <div class="pc-title">Supercharger Effects on IC Engine Performance</div>
-            <div class="pc-desc">Python thermodynamic simulation — boost pressure curves, volumetric efficiency analysis achieving 134% VE.</div>
-            <div class="pc-footer">
-              <div class="pc-tools"><span class="tag">Python</span><span class="tag">Matplotlib</span><span class="tag">Thermodynamics</span></div>
-              <span class="pc-arrow">→</span>
-            </div>
-          </div>
+        <div class="pc" id="pc-engine">
+          <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">&#128293;</span><span class="pc-ph-lbl">Upload: engine.jpg</span></div><span class="pc-cat-badge">Simulation</span></div>
+          <div class="pc-body"><div class="pc-title">Supercharger Effects on IC Engine Performance</div><div class="pc-desc">Python thermodynamic simulation &mdash; boost pressure curves, volumetric efficiency analysis achieving 134% VE.</div>
+          <div class="pc-footer"><div class="pc-tools"><span class="tag">Python</span><span class="tag">Matplotlib</span><span class="tag">Thermodynamics</span></div><span class="pc-arrow">&rarr;</span></div></div>
         </div>
-        <div class="pc" onclick="openProject('robot')">
-          <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">🦾</span><span class="pc-ph-lbl">Upload: robot.jpg</span></div><span class="pc-cat-badge">Robotics</span></div>
-          <div class="pc-body">
-            <div class="pc-title">Kinematic System Design — Quadruped Robot</div>
-            <div class="pc-desc">Forward & inverse kinematics for a 4-legged robot, gait simulation, joint trajectory visualisation in NumPy.</div>
-            <div class="pc-footer">
-              <div class="pc-tools"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Kinematics</span></div>
-              <span class="pc-arrow">→</span>
-            </div>
-          </div>
+        <div class="pc" id="pc-robot">
+          <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">&#129470;</span><span class="pc-ph-lbl">Upload: robot.jpg</span></div><span class="pc-cat-badge">Robotics</span></div>
+          <div class="pc-body"><div class="pc-title">Kinematic System Design &mdash; Quadruped Robot</div><div class="pc-desc">Forward &amp; inverse kinematics for a 4-legged robot, gait simulation, joint trajectory visualisation in NumPy.</div>
+          <div class="pc-footer"><div class="pc-tools"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Kinematics</span></div><span class="pc-arrow">&rarr;</span></div></div>
         </div>
-        <div class="pc" onclick="openProject('airfoil')">
-          <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">💨</span><span class="pc-ph-lbl">Upload: airfoil.jpg</span></div><span class="pc-cat-badge">CFD</span></div>
-          <div class="pc-body">
-            <div class="pc-title">Fluid Flow Analysis Over an Airfoil</div>
-            <div class="pc-desc">NACA airfoil panel method — Cp distribution, streamline and velocity contour visualisation in Python.</div>
-            <div class="pc-footer">
-              <div class="pc-tools"><span class="tag">Python</span><span class="tag">Panel Method</span><span class="tag">Aerodynamics</span></div>
-              <span class="pc-arrow">→</span>
-            </div>
-          </div>
+        <div class="pc" id="pc-airfoil">
+          <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">&#128168;</span><span class="pc-ph-lbl">Upload: airfoil.jpg</span></div><span class="pc-cat-badge">CFD</span></div>
+          <div class="pc-body"><div class="pc-title">Fluid Flow Analysis Over an Airfoil</div><div class="pc-desc">NACA airfoil panel method &mdash; Cp distribution, streamline and velocity contour visualisation in Python.</div>
+          <div class="pc-footer"><div class="pc-tools"><span class="tag">Python</span><span class="tag">Panel Method</span><span class="tag">Aerodynamics</span></div><span class="pc-arrow">&rarr;</span></div></div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Experience strip -->
   <div class="section">
     <div class="wrap">
-      <div class="section-header">
-        <div>
-          <div class="section-heading">Experience</div>
-          <div class="section-sub">Academic background & club involvement</div>
-        </div>
-      </div>
+      <div class="section-header"><div><div class="section-heading">Experience</div><div class="section-sub">Academic background &amp; club involvement</div></div></div>
       <div class="exp-list">
         <div class="exp-item">
-          <div class="exp-left">
-            <div class="exp-date">2023 – Now</div>
-            <div class="exp-icon">🎓</div>
-          </div>
-          <div class="exp-right">
-            <div class="exp-org">ACET · JNTUK</div>
+          <div class="exp-left"><div class="exp-date">2023 &ndash; Now</div><div class="exp-icon">&#127891;</div></div>
+          <div>
+            <div class="exp-org">ACET &middot; JNTUK</div>
             <div class="exp-role">B.Tech Mechanical Engineering</div>
-            <p class="exp-desc">3rd year · CGPA 8.84/10 · Coursework in thermodynamics, fluid mechanics, machine design, FEA, and CAD — all feeding directly into hands-on project work and simulations.</p>
-            <div class="exp-img-block"><div class="ph-row"><span>🏛️</span><p>Upload: campus.jpg</p></div></div>
+            <p class="exp-desc">3rd year &middot; CGPA 8.84/10 &middot; Coursework in thermodynamics, fluid mechanics, machine design, FEA, and CAD &mdash; all feeding directly into hands-on project work and simulations.</p>
+            <div class="exp-img-block"><div class="ph-row"><span>&#127963;</span><p>Upload: campus.jpg</p></div></div>
           </div>
         </div>
         <div class="exp-item">
-          <div class="exp-left">
-            <div class="exp-date">2024 – Now</div>
-            <div class="exp-icon">🤖</div>
-          </div>
-          <div class="exp-right">
+          <div class="exp-left"><div class="exp-date">2024 &ndash; Now</div><div class="exp-icon">&#129302;</div></div>
+          <div>
             <div class="exp-org">IMEC Robotics Club</div>
             <div class="exp-role">Active Member</div>
-            <p class="exp-desc">Participated in UAV Hexcopter Assembly & Deployment and Electric Vehicle Design workshops. Hands-on with EF16 drone build, flight controller config, and EV powertrain fundamentals.</p>
-            <div class="exp-img-block"><div class="ph-row"><span>🚁</span><p>Upload: workshop.jpg</p></div></div>
+            <p class="exp-desc">Participated in UAV Hexcopter Assembly &amp; Deployment and Electric Vehicle Design workshops. Role: Mechanical Designer &amp; Assembly on the EF16 Hexcopter drone project.</p>
+            <div class="exp-img-block"><img src="uav.jpg" alt="UAV Workshop"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-</div><!-- /home -->
-
-<!-- ══════════════════════════════════════════════════════════ -->
-<!--  PROJECTS PAGE                                             -->
-<!-- ══════════════════════════════════════════════════════════ -->
+<!-- PROJECTS PAGE -->
 <div id="page-projects" class="pv">
-  <div class="page-banner">
-    <div class="wrap">
-      <div class="page-banner-inner">
-        <div>
-          <h1>Projects</h1>
-          <p>Click any card to view the full project details</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="page-banner"><div class="wrap"><h1>Projects</h1><p>Click any card to view full project details</p></div></div>
   <div class="filter-row">
     <button class="ftab active" data-filter="all">All</button>
-    <button class="ftab" data-filter="cad">CAD & Design</button>
+    <button class="ftab" data-filter="cad">CAD &amp; Design</button>
     <button class="ftab" data-filter="simulation">Simulation</button>
     <button class="ftab" data-filter="python">Python</button>
     <button class="ftab" data-filter="robotics">Robotics</button>
     <button class="ftab" data-filter="cfd">CFD</button>
   </div>
-  <div class="all-proj">
-    <div class="wrap">
-      <div class="all-proj-grid">
-        <div class="pc" data-cat="cad" onclick="openProject('uav')">
-          <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">✈️</span><span class="pc-ph-lbl">Upload: uav.jpg</span></div><span class="pc-cat-badge">CAD & Design</span></div>
-          <div class="pc-body">
-            <div class="pc-title">UAV System Design & Integration</div>
-            <div class="pc-desc">Fixed-wing UAV — SolidWorks, aerodynamic analysis, DfAM, avionics layout.</div>
-            <div class="pc-footer"><div class="pc-tools"><span class="tag">SolidWorks</span><span class="tag">DfAM</span></div><span class="pc-arrow">→</span></div>
-          </div>
-        </div>
-        <div class="pc" data-cat="simulation python" onclick="openProject('engine')">
-          <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">🔥</span><span class="pc-ph-lbl">Upload: engine.jpg</span></div><span class="pc-cat-badge">Simulation</span></div>
-          <div class="pc-body">
-            <div class="pc-title">Supercharger Effects on IC Engine Performance</div>
-            <div class="pc-desc">Python thermodynamic model, boost curves, 134% volumetric efficiency.</div>
-            <div class="pc-footer"><div class="pc-tools"><span class="tag">Python</span><span class="tag">Matplotlib</span></div><span class="pc-arrow">→</span></div>
-          </div>
-        </div>
-        <div class="pc" data-cat="robotics python" onclick="openProject('robot')">
-          <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">🦾</span><span class="pc-ph-lbl">Upload: robot.jpg</span></div><span class="pc-cat-badge">Robotics</span></div>
-          <div class="pc-body">
-            <div class="pc-title">Kinematic System Design — Quadruped Robot</div>
-            <div class="pc-desc">FK/IK models, gait simulation, NumPy trajectory visualisation.</div>
-            <div class="pc-footer"><div class="pc-tools"><span class="tag">Python</span><span class="tag">NumPy</span></div><span class="pc-arrow">→</span></div>
-          </div>
-        </div>
-        <div class="pc" data-cat="cfd python simulation" onclick="openProject('airfoil')">
-          <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">💨</span><span class="pc-ph-lbl">Upload: airfoil.jpg</span></div><span class="pc-cat-badge">CFD</span></div>
-          <div class="pc-body">
-            <div class="pc-title">Fluid Flow Analysis Over an Airfoil</div>
-            <div class="pc-desc">Panel method, Cp distribution, streamlines, velocity contours.</div>
-            <div class="pc-footer"><div class="pc-tools"><span class="tag">Python</span><span class="tag">Panel Method</span></div><span class="pc-arrow">→</span></div>
-          </div>
-        </div>
-      </div>
+  <div class="all-proj"><div class="wrap"><div class="all-proj-grid">
+    <div class="pc" data-cat="cad" id="pp-uav">
+      <div class="pc-img"><img src="uav.jpg" alt="UAV"><span class="pc-cat-badge">CAD &amp; Design</span></div>
+      <div class="pc-body"><div class="pc-title">UAV System Design &amp; Integration</div><div class="pc-desc">Fixed-wing UAV &mdash; SolidWorks, aerodynamic analysis, DfAM, avionics layout.</div>
+      <div class="pc-footer"><div class="pc-tools"><span class="tag">SolidWorks</span><span class="tag">DfAM</span></div><span class="pc-arrow">&rarr;</span></div></div>
     </div>
-  </div>
+    <div class="pc" data-cat="simulation python" id="pp-engine">
+      <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">&#128293;</span><span class="pc-ph-lbl">Upload: engine.jpg</span></div><span class="pc-cat-badge">Simulation</span></div>
+      <div class="pc-body"><div class="pc-title">Supercharger Effects on IC Engine Performance</div><div class="pc-desc">Python thermodynamic model, boost curves, 134% volumetric efficiency.</div>
+      <div class="pc-footer"><div class="pc-tools"><span class="tag">Python</span><span class="tag">Matplotlib</span></div><span class="pc-arrow">&rarr;</span></div></div>
+    </div>
+    <div class="pc" data-cat="robotics python" id="pp-robot">
+      <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">&#129470;</span><span class="pc-ph-lbl">Upload: robot.jpg</span></div><span class="pc-cat-badge">Robotics</span></div>
+      <div class="pc-body"><div class="pc-title">Kinematic System Design &mdash; Quadruped Robot</div><div class="pc-desc">FK/IK models, gait simulation, NumPy trajectory visualisation.</div>
+      <div class="pc-footer"><div class="pc-tools"><span class="tag">Python</span><span class="tag">NumPy</span></div><span class="pc-arrow">&rarr;</span></div></div>
+    </div>
+    <div class="pc" data-cat="cfd python simulation" id="pp-airfoil">
+      <div class="pc-img"><div class="pc-ph"><span class="pc-ph-ico">&#128168;</span><span class="pc-ph-lbl">Upload: airfoil.jpg</span></div><span class="pc-cat-badge">CFD</span></div>
+      <div class="pc-body"><div class="pc-title">Fluid Flow Analysis Over an Airfoil</div><div class="pc-desc">Panel method, Cp distribution, streamlines, velocity contours.</div>
+      <div class="pc-footer"><div class="pc-tools"><span class="tag">Python</span><span class="tag">Panel Method</span></div><span class="pc-arrow">&rarr;</span></div></div>
+    </div>
+  </div></div></div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════ -->
-<!--  PROJECT DETAIL                                            -->
-<!-- ══════════════════════════════════════════════════════════ -->
+<!-- PROJECT DETAIL PAGE -->
 <div id="page-project-detail" class="pv">
   <div class="detail-banner">
     <div class="wrap">
-      <div class="back-link" onclick="goBack()">
-        ← Back to Projects
-      </div>
+      <div class="back-link" id="proj-back">&#8592; Back to Projects</div>
       <div id="detail-banner-content"></div>
     </div>
   </div>
-  <div class="detail-body">
-    <div class="wrap">
-      <div id="detail-main-content"></div>
-    </div>
-  </div>
+  <div class="detail-body"><div class="wrap"><div id="detail-main-content"></div></div></div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════ -->
-<!--  WORKSHOPS PAGE                                            -->
-<!-- ══════════════════════════════════════════════════════════ -->
+<!-- WORKSHOPS PAGE -->
 <div id="page-workshops" class="pv">
-  <div class="page-banner">
-    <div class="wrap">
-      <h1>Workshops</h1>
-      <p style="color:rgba(255,255,255,.5);margin-top:8px;font-size:14px">Hands-on industry workshops and club activities</p>
-    </div>
-  </div>
+  <div class="page-banner"><div class="wrap"><h1>Workshops</h1><p>Hands-on industry workshops and club activities</p></div></div>
   <div class="wrap">
     <div class="ws-grid">
-      <div class="ws-card" onclick="openWorkshop('uav')">
-        <div class="ws-img">
-          <div class="ws-ph"><span class="pc-ph-ico" style="font-size:40px">🚁</span><span class="pc-ph-lbl">Upload: workshop_uav.jpg</span></div>
-          <span class="ws-badge">March 2026</span>
-        </div>
+      <div class="ws-card" id="ws-uav-card">
+        <div class="ws-img"><img src="uav.jpg" alt="UAV Workshop"><span class="ws-badge">March 2026 &middot; 3 Days</span></div>
         <div class="ws-body">
           <div class="ws-org">IMEC Robotics Club</div>
-          <div class="ws-title">UAV Hexcopter Assembly & Deployment</div>
-          <p class="ws-desc">Practical workshop covering EF16 hexcopter frame construction, motor and ESC wiring, flight controller configuration, and pre-flight deployment procedures.</p>
-          <div class="ws-tags"><span class="ws-tag">EF16 Drone</span><span class="ws-tag">Hexcopter</span><span class="ws-tag">UAV Systems</span><span class="ws-tag">Assembly</span></div>
+          <div class="ws-title">EF16 Hexcopter Drone &mdash; Assembly &amp; Deployment</div>
+          <p class="ws-desc">3-day intensive workshop. Designed and assembled an AI-assisted campus surveillance hexcopter carrying a 10 kg payload at 20&ndash;40 km/h. Role: Mechanical Designer &amp; Assembly.</p>
+          <div class="ws-tags"><span class="ws-tag">EF16 Hexcopter</span><span class="ws-tag">10 kg Payload</span><span class="ws-tag">Pixhawk</span><span class="ws-tag">Mission Planner</span><span class="ws-tag">Carbon Fibre</span><span class="ws-tag">AI Surveillance</span></div>
         </div>
       </div>
-      <div class="ws-card" onclick="openWorkshop('ev')">
-        <div class="ws-img">
-          <div class="ws-ph"><span class="pc-ph-ico" style="font-size:40px">⚡</span><span class="pc-ph-lbl">Upload: workshop_ev.jpg</span></div>
-          <span class="ws-badge">March 2026</span>
-        </div>
+      <div class="ws-card" id="ws-ev-card">
+        <div class="ws-img"><div class="ws-ph"><span class="pc-ph-ico" style="font-size:40px">&#9889;</span><span class="pc-ph-lbl">Upload: workshop_ev.jpg</span></div><span class="ws-badge">March 2026</span></div>
         <div class="ws-body">
           <div class="ws-org">Pantech Engineering</div>
           <div class="ws-title">Electric Vehicle Design</div>
@@ -757,312 +387,407 @@ footer { background:var(--navy); padding:22px 60px; display:flex; justify-conten
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════ -->
-<!--  WORKSHOP DETAIL                                           -->
-<!-- ══════════════════════════════════════════════════════════ -->
+<!-- WORKSHOP DETAIL PAGE -->
 <div id="page-workshop-detail" class="pv">
   <div class="detail-banner">
     <div class="wrap">
-      <div class="back-link" onclick="navigate('workshops')">← Back to Workshops</div>
+      <div class="back-link" id="ws-back">&#8592; Back to Workshops</div>
       <div id="ws-banner-content"></div>
     </div>
   </div>
-  <div class="ws-detail-body">
-    <div class="wrap">
-      <div id="ws-main-content"></div>
-    </div>
-  </div>
+  <div class="ws-detail-body"><div class="wrap"><div id="ws-main-content"></div></div></div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════ -->
-<!--  ABOUT                                                     -->
-<!-- ══════════════════════════════════════════════════════════ -->
+<!-- ABOUT PAGE -->
 <div id="page-about" class="pv">
   <div class="page-banner"><div class="wrap"><h1>About Me</h1></div></div>
-  <div class="about-body">
-    <div class="wrap">
-      <div class="about-grid">
-        <div>
-          <div class="about-text">
-            <h2>Simbarashe Joworingo</h2>
-            <p>Hi there! I'm a 3rd-year Mechanical Engineering student at Aditya College of Engineering & Technology under JNTUK, Andhra Pradesh, India. My engineering journey started with a fascination for how machines work — taking things apart, understanding them, and building better versions.</p>
-            <p>That curiosity has evolved into a focused skillset in CAD modelling across SolidWorks, CATIA, and Siemens NX, Python-based engineering simulation, and computational fluid dynamics. I maintain a CGPA of 8.84/10 and actively apply my coursework to real engineering problems.</p>
-            <p>I'm an active member of the IMEC Robotics Club and have completed hands-on workshops in UAV assembly and Electric Vehicle design. Currently preparing for engineering internship roles in applied mechanics, aerospace systems, and numerical simulation.</p>
-            <a href="cv.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:2px">Download Resume →</a>
-          </div>
-          <div class="sk-block">
-            <div class="sk-head">Technical Skills</div>
-            <div class="sk-group"><div class="sg-lbl">CAD & Design</div><div class="chips"><span class="chip">SolidWorks</span><span class="chip">CATIA 3DEXP</span><span class="chip">Siemens NX</span><span class="chip">Fusion 360</span><span class="chip">AutoCAD</span></div></div>
-            <div class="sk-group"><div class="sg-lbl">Programming</div><div class="chips"><span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span><span class="chip">Pandas</span><span class="chip">Simulink</span></div></div>
-            <div class="sk-group"><div class="sg-lbl">Simulation & Analysis</div><div class="chips"><span class="chip">CFD</span><span class="chip">FEA</span><span class="chip">ANSYS Fluent</span><span class="chip">Kinematic Modelling</span></div></div>
-          </div>
-          <div class="sk-block">
-            <div class="sk-head">Certifications</div>
-            <table class="certs-table">
-              <thead><tr><th>Qualification</th><th>Issuer</th><th>Link</th></tr></thead>
-              <tbody>
-                <tr><td>SOLIDWORKS 3D CAD for Education</td><td>Dassault / Coursera</td><td><a href="https://coursera.org/verify/specialization/3W6ES17YV2JQ" target="_blank">Verify ↗</a></td></tr>
-                <tr><td>CATIA — Mechanical Designer</td><td>Dassault / Coursera</td><td><a href="https://coursera.org/verify/specialization/C7STOSLBWUG2" target="_blank">Verify ↗</a></td></tr>
-                <tr><td>Modeling with Simulink</td><td>MathWorks / Coursera</td><td><a href="https://coursera.org/verify/JDHZ6UNFIZFK" target="_blank">Verify ↗</a></td></tr>
-                <tr><td>Intro to MATLAB Programming</td><td>Vanderbilt / Coursera</td><td><a href="https://coursera.org/verify/8F2IVL22IELD" target="_blank">Verify ↗</a></td></tr>
-                <tr><td>Siemens NX Essentials</td><td>Siemens / Coursera</td><td><a href="https://coursera.org/verify/E4KLR3FLPE32" target="_blank">Verify ↗</a></td></tr>
-                <tr><td>Python for Mechanical Engineers</td><td>Decibels Lab</td><td>—</td></tr>
-                <tr><td>Learning Fusion 360</td><td>Autodesk / Coursera</td><td>—</td></tr>
-              </tbody>
-            </table>
-          </div>
+  <div class="about-body"><div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="about-text">
+          <h2>Simbarashe Joworingo</h2>
+          <p>Hi there! I am a 3rd-year Mechanical Engineering student at Aditya College of Engineering &amp; Technology under JNTUK, Andhra Pradesh, India. My engineering journey started with a fascination for how machines work &mdash; taking things apart, understanding them, and building better versions.</p>
+          <p>That curiosity has evolved into a focused skillset in CAD modelling across SolidWorks, CATIA, and Siemens NX, Python-based engineering simulation, and computational fluid dynamics. I maintain a CGPA of 8.84/10 and actively apply my coursework to real engineering problems.</p>
+          <p>I am an active member of the IMEC Robotics Club and have completed hands-on workshops in UAV assembly and Electric Vehicle design. Currently preparing for engineering internship roles in applied mechanics, aerospace systems, and numerical simulation.</p>
+          <a href="cv.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:2px">Download Resume &rarr;</a>
         </div>
-        <div>
-          <div class="about-photo"><img src="photo.jpg" alt="Simbarashe Joworingo" /></div>
-          <div class="about-stats">
-            <div class="as-row"><div class="as-num">8.84</div><div class="as-lbl">CGPA / 10</div></div>
-            <div class="as-row"><div class="as-num">4</div><div class="as-lbl">Projects</div></div>
-            <div class="as-row"><div class="as-num">7+</div><div class="as-lbl">Certifications</div></div>
-            <div class="as-row"><div class="as-num">5</div><div class="as-lbl">CAD Platforms</div></div>
-          </div>
+        <div class="sk-block">
+          <div class="sk-head">Technical Skills</div>
+          <div class="sk-group"><div class="sg-lbl">CAD &amp; Design</div><div class="chips"><span class="chip">SolidWorks</span><span class="chip">CATIA 3DEXP</span><span class="chip">Siemens NX</span><span class="chip">Fusion 360</span><span class="chip">AutoCAD</span></div></div>
+          <div class="sk-group"><div class="sg-lbl">Programming</div><div class="chips"><span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span><span class="chip">Pandas</span><span class="chip">Simulink</span></div></div>
+          <div class="sk-group"><div class="sg-lbl">Simulation &amp; Analysis</div><div class="chips"><span class="chip">CFD</span><span class="chip">FEA</span><span class="chip">ANSYS Fluent</span><span class="chip">Kinematic Modelling</span></div></div>
+        </div>
+        <div class="sk-block">
+          <div class="sk-head">Certifications</div>
+          <table class="certs-table">
+            <thead><tr><th>Qualification</th><th>Issuer</th><th>Link</th></tr></thead>
+            <tbody>
+              <tr><td>SOLIDWORKS 3D CAD for Education</td><td>Dassault / Coursera</td><td><a href="https://coursera.org/verify/specialization/3W6ES17YV2JQ" target="_blank">Verify</a></td></tr>
+              <tr><td>CATIA &mdash; Mechanical Designer</td><td>Dassault / Coursera</td><td><a href="https://coursera.org/verify/specialization/C7STOSLBWUG2" target="_blank">Verify</a></td></tr>
+              <tr><td>Modeling with Simulink</td><td>MathWorks / Coursera</td><td><a href="https://coursera.org/verify/JDHZ6UNFIZFK" target="_blank">Verify</a></td></tr>
+              <tr><td>Intro to MATLAB Programming</td><td>Vanderbilt / Coursera</td><td><a href="https://coursera.org/verify/8F2IVL22IELD" target="_blank">Verify</a></td></tr>
+              <tr><td>Siemens NX Essentials</td><td>Siemens / Coursera</td><td><a href="https://coursera.org/verify/E4KLR3FLPE32" target="_blank">Verify</a></td></tr>
+              <tr><td>Python for Mechanical Engineers</td><td>Decibels Lab</td><td>&mdash;</td></tr>
+              <tr><td>Learning Fusion 360</td><td>Autodesk / Coursera</td><td>&mdash;</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="about-photo"><img src="photo.jpg" alt="Simbarashe Joworingo"></div>
+        <div class="about-stats">
+          <div class="as-row"><div class="as-num">8.84</div><div class="as-lbl">CGPA / 10</div></div>
+          <div class="as-row"><div class="as-num">4</div><div class="as-lbl">Projects</div></div>
+          <div class="as-row"><div class="as-num">7+</div><div class="as-lbl">Certifications</div></div>
+          <div class="as-row"><div class="as-num">5</div><div class="as-lbl">CAD Platforms</div></div>
         </div>
       </div>
     </div>
-  </div>
+  </div></div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════ -->
-<!--  GALLERY                                                   -->
-<!-- ══════════════════════════════════════════════════════════ -->
+<!-- GALLERY PAGE -->
 <div id="page-gallery" class="pv">
-  <div class="page-banner"><div class="wrap"><h1>Gallery</h1><p style="color:rgba(255,255,255,.5);margin-top:8px;font-size:14px">Academic activities, workshops, and campus life</p></div></div>
-  <div class="gal-body">
-    <div class="wrap">
-      <div class="gal-grid">
-        <div class="gal-item" onclick="openLB('photo.jpg','Simbarashe Joworingo — ACET')"><img src="photo.jpg" alt="Simbarashe" /><div class="gal-ov"><div class="gal-cap">Simbarashe Joworingo</div></div></div>
-        <div class="gal-item" onclick="openLB('gallery_2.jpg','UAV Hexcopter Workshop')"><div class="gal-ph"><span class="gal-ph-ico">🚁</span><span class="gal-ph-txt">Upload: gallery_2.jpg</span></div><div class="gal-ov"><div class="gal-cap">UAV Workshop</div></div></div>
-        <div class="gal-item" onclick="openLB('gallery_3.jpg','EV Design Workshop')"><div class="gal-ph"><span class="gal-ph-ico">⚡</span><span class="gal-ph-txt">Upload: gallery_3.jpg</span></div><div class="gal-ov"><div class="gal-cap">EV Workshop</div></div></div>
-        <div class="gal-item" onclick="openLB('gallery_4.jpg','SolidWorks UAV Design')"><div class="gal-ph"><span class="gal-ph-ico">✈️</span><span class="gal-ph-txt">Upload: gallery_4.jpg</span></div><div class="gal-ov"><div class="gal-cap">CAD Work</div></div></div>
-        <div class="gal-item" onclick="openLB('gallery_5.jpg','Engineering Lab')"><div class="gal-ph"><span class="gal-ph-ico">🔬</span><span class="gal-ph-txt">Upload: gallery_5.jpg</span></div><div class="gal-ov"><div class="gal-cap">Lab Session</div></div></div>
-        <div class="gal-item" onclick="openLB('gallery_6.jpg','IMEC Robotics Club')"><div class="gal-ph"><span class="gal-ph-ico">🤖</span><span class="gal-ph-txt">Upload: gallery_6.jpg</span></div><div class="gal-ov"><div class="gal-cap">IMEC Robotics Club</div></div></div>
-      </div>
-    </div>
-  </div>
+  <div class="page-banner"><div class="wrap"><h1>Gallery</h1><p>Academic activities, workshops, and campus life</p></div></div>
+  <div class="gal-body"><div class="wrap"><div class="gal-grid">
+    <div class="gal-item" id="gl-1"><img src="photo.jpg" alt="Simbarashe"><div class="gal-ov"><div class="gal-cap">Simbarashe Joworingo</div></div></div>
+    <div class="gal-item" id="gl-2"><img src="uav.jpg" alt="UAV"><div class="gal-ov"><div class="gal-cap">EF16 Hexcopter Drone</div></div></div>
+    <div class="gal-item" id="gl-3"><div class="gal-ph"><span class="gal-ph-ico">&#9889;</span><span class="gal-ph-txt">Upload: gallery_3.jpg</span></div><div class="gal-ov"><div class="gal-cap">EV Workshop</div></div></div>
+    <div class="gal-item" id="gl-4"><div class="gal-ph"><span class="gal-ph-ico">&#128736;</span><span class="gal-ph-txt">Upload: gallery_4.jpg</span></div><div class="gal-ov"><div class="gal-cap">CAD Work</div></div></div>
+    <div class="gal-item" id="gl-5"><div class="gal-ph"><span class="gal-ph-ico">&#128300;</span><span class="gal-ph-txt">Upload: gallery_5.jpg</span></div><div class="gal-ov"><div class="gal-cap">Lab Session</div></div></div>
+    <div class="gal-item" id="gl-6"><div class="gal-ph"><span class="gal-ph-ico">&#129302;</span><span class="gal-ph-txt">Upload: gallery_6.jpg</span></div><div class="gal-ov"><div class="gal-cap">IMEC Robotics Club</div></div></div>
+  </div></div></div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════ -->
-<!--  CONTACT                                                   -->
-<!-- ══════════════════════════════════════════════════════════ -->
+<!-- CONTACT PAGE -->
 <div id="page-contact" class="pv">
   <div class="page-banner"><div class="wrap"><h1>Contact</h1></div></div>
-  <div class="contact-body">
-    <div class="wrap">
-      <div class="contact-grid">
-        <div>
-          <div class="contact-text">
-            <h2>Let's Connect</h2>
-            <p>I'm actively seeking internship opportunities, research collaborations, and engineering project discussions. Whether you're a recruiter, a fellow engineer, or just curious — feel free to reach out.</p>
-          </div>
-          <a href="mailto:joworingosimbarashe6@gmail.com" style="display:block">
-            <div class="contact-item">
-              <div class="c-icon">✉️</div>
-              <div><div class="c-lbl">Email</div><div class="c-val">joworingosimbarashe6@gmail.com</div></div>
-            </div>
-          </a>
-          <a href="tel:+919398430187" style="display:block">
-            <div class="contact-item">
-              <div class="c-icon">📞</div>
-              <div><div class="c-lbl">Phone</div><div class="c-val">+91 93984 30187</div></div>
-            </div>
-          </a>
-          <a href="https://grabcad.com/simbarashe.joworingo-2" target="_blank" style="display:block">
-            <div class="contact-item">
-              <div class="c-icon">🔩</div>
-              <div><div class="c-lbl">GrabCAD</div><div class="c-val">grabcad.com/simbarashe.joworingo-2</div></div>
-            </div>
-          </a>
-          <a href="cv.pdf" target="_blank" style="display:block">
-            <div class="contact-item">
-              <div class="c-icon">📄</div>
-              <div><div class="c-lbl">Resume</div><div class="c-val">Download CV (PDF)</div></div>
-            </div>
-          </a>
+  <div class="contact-body"><div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="contact-text">
+          <h2>Let's Connect</h2>
+          <p>I am actively seeking internship opportunities, research collaborations, and engineering project discussions. Whether you are a recruiter, a fellow engineer, or just curious &mdash; feel free to reach out.</p>
         </div>
-        <div>
-          <div class="avail-card">
-            <div class="avail-head"><div class="green-dot"></div><div class="avail-title">Available for Opportunities</div></div>
-            <ul class="avail-list">
-              <li>Summer Internship 2026</li>
-              <li>Research Collaboration</li>
-              <li>Design & CAD Projects</li>
-              <li>Part-time / Remote Engineering Work</li>
-            </ul>
-            <a href="mailto:joworingosimbarashe6@gmail.com" class="avail-btn">Send Email →</a>
-          </div>
+        <a href="mailto:joworingosimbarashe6@gmail.com" style="display:block"><div class="contact-item"><div class="c-icon">&#9993;</div><div><div class="c-lbl">Email</div><div class="c-val">joworingosimbarashe6@gmail.com</div></div></div></a>
+        <a href="tel:+919398430187" style="display:block"><div class="contact-item"><div class="c-icon">&#128222;</div><div><div class="c-lbl">Phone</div><div class="c-val">+91 93984 30187</div></div></div></a>
+        <a href="https://grabcad.com/simbarashe.joworingo-2" target="_blank" style="display:block"><div class="contact-item"><div class="c-icon">&#128296;</div><div><div class="c-lbl">GrabCAD</div><div class="c-val">grabcad.com/simbarashe.joworingo-2</div></div></div></a>
+        <a href="cv.pdf" target="_blank" style="display:block"><div class="contact-item"><div class="c-icon">&#128196;</div><div><div class="c-lbl">Resume</div><div class="c-val">Download CV (PDF)</div></div></div></a>
+      </div>
+      <div>
+        <div class="avail-card">
+          <div class="avail-head"><div class="green-dot"></div><div class="avail-title">Available for Opportunities</div></div>
+          <ul class="avail-list">
+            <li>Summer Internship 2026</li>
+            <li>Research Collaboration</li>
+            <li>Design &amp; CAD Projects</li>
+            <li>Part-time / Remote Engineering Work</li>
+          </ul>
+          <a href="mailto:joworingosimbarashe6@gmail.com" class="avail-btn">Send Email &rarr;</a>
         </div>
       </div>
     </div>
-  </div>
+  </div></div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <span>Simbarashe Joworingo · B.Tech Mechanical Engineering · ACET / JNTUK</span>
-  <span>Copyright © 2026</span>
+  <span>Simbarashe Joworingo &middot; B.Tech Mechanical Engineering &middot; ACET / JNTUK</span>
+  <span>Copyright &copy; 2026</span>
 </footer>
 
-<!-- LIGHTBOX -->
-<div class="lb" id="lb" onclick="if(event.target===this)closeLB()">
-  <button class="lb-x" onclick="closeLB()">✕</button>
-  <div class="lb-inner"><img id="lb-img" src="" alt="" /><div class="lb-cap" id="lb-cap"></div></div>
+<div class="lb" id="lb">
+  <button class="lb-x" id="lb-close">&times;</button>
+  <div class="lb-inner"><img id="lb-img" src="" alt=""><div class="lb-cap" id="lb-cap"></div></div>
 </div>
 
 <script>
-/* ── DATA ─────────────────────────────────────────────────── */
-const PROJECTS = {
-  uav:{
-    title:'UAV System Design & Integration',cat:'CAD & Design · Aerospace',icon:'✈️',hint:'Upload: uav.jpg',
-    intro:'Designed and integrated a complete fixed-wing UAV system from scratch using SolidWorks. Covered the full design pipeline — from conceptual sizing and aerodynamic trade-off analysis through to detailed CAD modelling, design for additive manufacturing (DfAM), and internal avionics wiring layout.',
-    contribs:['Designed system-level CAD models for a fixed-wing UAV fuselage and wing assembly in SolidWorks, optimised for mission payload and range requirements.','Performed aerodynamic trade-off analysis — wing loading, aspect ratio, lift-drag at low Reynolds numbers — to select the optimal configuration.','Selected a high-lift airfoil by analysing the trade-off between aspect ratio and structural stiffness for low-Re flight.','Executed design segmentation for additive manufacturing (FDM) to reduce part count while maintaining structural integrity.','Planned internal avionics wiring routes for control surfaces and flight controller, minimising EMI.'],
-    outcomes:['Translating mission requirements into geometric constraints demands systematic trade-off analysis at every stage.','DfAM requires planning assembly sequences before committing to any geometric modelling.','Low-Re aerodynamics deviates significantly from classical textbook assumptions — empirical data is essential.'],
-    tools:['SolidWorks','Aerodynamic Analysis','DfAM / FDM','Systems Integration','Avionics Layout'],
-    stats:[['Platform','Fixed-Wing UAV'],['Tool','SolidWorks'],['Manufacturing','FDM / 3D Print'],['Category','CAD & Design']]
+(function() {
+
+var PROJECTS = {
+  uav: {
+    title: "UAV System Design & Integration",
+    cat: "CAD & Design · Aerospace",
+    img: "uav.jpg",
+    intro: "Designed and integrated a complete fixed-wing UAV system from scratch using SolidWorks. Covered the full design pipeline from conceptual sizing and aerodynamic trade-off analysis through to detailed CAD modelling, design for additive manufacturing (DfAM), and internal avionics wiring layout.",
+    contribs: [
+      "Designed system-level CAD models for a fixed-wing UAV fuselage and wing assembly in SolidWorks, optimised for mission payload and range requirements.",
+      "Performed aerodynamic trade-off analysis covering wing loading, aspect ratio, and lift-drag behaviour at low Reynolds numbers.",
+      "Selected a high-lift airfoil by analysing the trade-off between aspect ratio and structural stiffness for low-Re flight.",
+      "Executed design segmentation for additive manufacturing (FDM) to reduce part count while maintaining structural integrity.",
+      "Planned internal avionics wiring routes for control surfaces and flight controller, minimising electromagnetic interference."
+    ],
+    outcomes: [
+      "Translating mission requirements into geometric constraints demands systematic trade-off analysis at every stage.",
+      "DfAM requires planning assembly sequences before committing to geometric modelling.",
+      "Low-Re aerodynamics deviates significantly from classical textbook assumptions."
+    ],
+    tools: ["SolidWorks", "Aerodynamic Analysis", "DfAM / FDM", "Systems Integration", "Avionics Layout"],
+    stats: [["Platform","Fixed-Wing UAV"],["Tool","SolidWorks"],["Manufacturing","FDM / 3D Print"],["Category","CAD & Design"]]
   },
-  engine:{
-    title:'Supercharger Effects on IC Engine Performance',cat:'Simulation · Python · Thermodynamics',icon:'🔥',hint:'Upload: engine.jpg',
-    intro:'Developed a Python-based thermodynamic simulation to model and visualise the impact of supercharging on IC engine performance. The project produced boost pressure vs. power curves, efficiency vs. speed plots, and a simulated 134% volumetric efficiency result.',
-    contribs:['Built Python scripts to model thermodynamic parameters: AFR, combustion efficiency, and volumetric efficiency across a range of boost pressures.','Generated boost pressure vs. power and efficiency vs. speed performance curves using Matplotlib and Pandas.','Simulated and analysed the influence of intake pressure and temperature rise on engine breathing characteristics.','Achieved a simulated 134% volumetric efficiency, validating the model against known literature values.'],
-    outcomes:['Supercharging fundamentally alters thermal behaviour and introduces new design constraints for intake, cooling, and fuelling.','Data visualisation is a primary engineering analysis tool — not just a presentational output.','Thermodynamic models in code require rigorous understanding of governing equations before writing any code.'],
-    tools:['Python','Matplotlib','Pandas','Thermodynamics','IC Engine Theory'],
-    stats:[['Language','Python'],['Libraries','Matplotlib · Pandas'],['Key Result','134% Vol. Efficiency'],['Category','Simulation']]
+  engine: {
+    title: "Supercharger Effects on IC Engine Performance",
+    cat: "Simulation · Python · Thermodynamics",
+    img: "",
+    intro: "Developed a Python-based thermodynamic simulation to model and visualise the impact of supercharging on IC engine performance. The project produced boost pressure vs power curves, efficiency vs speed plots, and a simulated 134% volumetric efficiency result.",
+    contribs: [
+      "Built Python scripts to model thermodynamic parameters: AFR, combustion efficiency, and volumetric efficiency across a range of boost pressures.",
+      "Generated boost pressure vs power and efficiency vs speed performance curves using Matplotlib and Pandas.",
+      "Simulated and analysed the influence of intake pressure and temperature rise on engine breathing characteristics.",
+      "Achieved a simulated 134% volumetric efficiency, validating the model against known literature values."
+    ],
+    outcomes: [
+      "Supercharging fundamentally alters thermal behaviour and introduces new design constraints for intake, cooling, and fuelling.",
+      "Data visualisation is a primary engineering analysis tool, not just a presentational output.",
+      "Thermodynamic models in code require rigorous understanding of governing equations before writing any code."
+    ],
+    tools: ["Python", "Matplotlib", "Pandas", "Thermodynamics", "IC Engine Theory"],
+    stats: [["Language","Python"],["Libraries","Matplotlib & Pandas"],["Key Result","134% Vol. Efficiency"],["Category","Simulation"]]
   },
-  robot:{
-    title:'Kinematic System Design — Quadruped Robot',cat:'Robotics · Python · Kinematics',icon:'🦾',hint:'Upload: robot.jpg',
-    intro:'Designed and simulated the kinematic system of a four-legged robot in Python. Implemented full forward and inverse kinematic models, simulated multi-gait joint trajectories, and visualised foot-path envelopes and workspace boundaries for the quadruped leg mechanism.',
-    contribs:['Derived and implemented forward and inverse kinematic models for a 4-legged robot leg system using NumPy, following Denavit-Hartenberg parameter conventions.','Simulated joint angle trajectories for multiple gait patterns (walk, trot) and visualised results using Matplotlib.','Visualised foot-path trajectories and joint workspace envelopes to verify kinematic reach and avoid singularities.','Validated the IK solver against the FK model to ensure geometric consistency across the full range of motion.'],
-    outcomes:['Kinematic chain analysis requires careful frame assignment and rigorous DH parameter definition before any code is written.','Gait design demands simultaneous consideration of mechanical limits and computational efficiency.','Even simple 2-DOF leg models reveal rich non-linear behaviour in workspace boundaries.'],
-    tools:['Python','NumPy','Matplotlib','Kinematics','DH Parameters','Robotics'],
-    stats:[['Language','Python'],['Libraries','NumPy · Matplotlib'],['Leg DOF','3-DOF per leg'],['Category','Robotics']]
+  robot: {
+    title: "Kinematic System Design — Quadruped Robot",
+    cat: "Robotics · Python · Kinematics",
+    img: "",
+    intro: "Designed and simulated the kinematic system of a four-legged robot in Python. Implemented full forward and inverse kinematic models, simulated multi-gait joint trajectories, and visualised foot-path envelopes and workspace boundaries.",
+    contribs: [
+      "Derived and implemented forward and inverse kinematic models for a 4-legged robot leg system using NumPy following Denavit-Hartenberg parameter conventions.",
+      "Simulated joint angle trajectories for multiple gait patterns (walk, trot) and visualised results using Matplotlib.",
+      "Visualised foot-path trajectories and joint workspace envelopes to verify kinematic reach and avoid singularities.",
+      "Validated the IK solver against the FK model to ensure geometric consistency across the full range of motion."
+    ],
+    outcomes: [
+      "Kinematic chain analysis requires careful frame assignment and rigorous DH parameter definition before any code is written.",
+      "Gait design demands simultaneous consideration of mechanical limits and computational efficiency.",
+      "Even simple 2-DOF leg models reveal rich non-linear behaviour in workspace boundaries."
+    ],
+    tools: ["Python", "NumPy", "Matplotlib", "Kinematics", "DH Parameters", "Robotics"],
+    stats: [["Language","Python"],["Libraries","NumPy & Matplotlib"],["Leg DOF","3-DOF per leg"],["Category","Robotics"]]
   },
-  airfoil:{
-    title:'Fluid Flow Analysis Over an Airfoil',cat:'CFD · Python · Fluid Mechanics',icon:'💨',hint:'Upload: airfoil.jpg',
-    intro:'Implemented a Python-based fluid flow simulation over a NACA airfoil cross-section using panel method / potential flow theory. Produced pressure coefficient distributions, velocity contour maps, and streamline visualisations — bridging theoretical fluid mechanics and practical aerodynamic design.',
-    contribs:['Generated NACA airfoil geometry programmatically and applied panel method analysis to compute surface velocity and pressure distributions.','Computed and plotted the pressure coefficient (Cp) distribution along the chord at multiple angles of attack.','Visualised streamlines and velocity magnitude contours around the airfoil profile using Matplotlib.','Analysed the effect of angle of attack on lift generation and flow separation onset.'],
-    outcomes:['Numerical flow analysis bridges theoretical fluid mechanics and practical aerodynamic design in a way textbook problems cannot.','Small AoA changes produce nonlinear, large-magnitude effects on pressure distribution near the leading edge.','Building a solver from first principles gives far deeper insight than using a black-box CFD package.'],
-    tools:['Python','NumPy','Matplotlib','Panel Method','Fluid Mechanics','Aerodynamics'],
-    stats:[['Language','Python'],['Method','Panel / Potential Flow'],['Geometry','NACA Series'],['Category','CFD']]
+  airfoil: {
+    title: "Fluid Flow Analysis Over an Airfoil",
+    cat: "CFD · Python · Fluid Mechanics",
+    img: "",
+    intro: "Implemented a Python-based fluid flow simulation over a NACA airfoil cross-section using panel method / potential flow theory. Produced pressure coefficient distributions, velocity contour maps, and streamline visualisations.",
+    contribs: [
+      "Generated NACA airfoil geometry programmatically and applied panel method analysis to compute surface velocity and pressure distributions.",
+      "Computed and plotted the pressure coefficient (Cp) distribution along the chord at multiple angles of attack.",
+      "Visualised streamlines and velocity magnitude contours around the airfoil profile using Matplotlib.",
+      "Analysed the effect of angle of attack on lift generation and flow separation onset."
+    ],
+    outcomes: [
+      "Numerical flow analysis bridges theoretical fluid mechanics and practical aerodynamic design.",
+      "Small AoA changes produce nonlinear, large-magnitude effects on pressure distribution near the leading edge.",
+      "Building a solver from first principles gives far deeper insight than using a black-box CFD package."
+    ],
+    tools: ["Python", "NumPy", "Matplotlib", "Panel Method", "Fluid Mechanics", "Aerodynamics"],
+    stats: [["Language","Python"],["Method","Panel / Potential Flow"],["Geometry","NACA Series"],["Category","CFD"]]
   }
 };
 
-const WORKSHOPS = {
-  uav:{
-    title:'UAV Hexcopter Assembly & Deployment',org:'IMEC Robotics Club',date:'March 2026',icon:'🚁',hint:'Upload: workshop_uav.jpg',
-    intro:'Hands-on workshop covering the full assembly and deployment process of an EF16 hexcopter UAV. Participants worked through frame construction, motor and ESC wiring, flight controller configuration, and pre-flight deployment procedures under guided supervision.',
-    contribs:['Assembled the EF16 hexcopter frame including arm installation, motor mounting, and propeller balancing.','Wired motor ESCs and connected the power distribution board following correct current-rating guidelines.','Configured the flight controller firmware — PID tuning, failsafe settings, and receiver channel mapping.','Conducted pre-flight systems checks including battery voltage, motor spin direction, and GPS lock verification.','Participated in a supervised deployment and flight test of the assembled aircraft.'],
-    outcomes:['Physical assembly of a multirotor UAV requires disciplined wiring practice and rigorous pre-flight checklists.','Flight controller configuration is as critical to UAV performance as the mechanical assembly.','Team coordination during build and deployment is a core engineering competency.'],
-    tools:['EF16 Hexcopter','ESC Wiring','Flight Controller','PID Tuning','Pre-flight Procedures'],
-    stats:[['Organiser','IMEC Robotics Club'],['Aircraft','EF16 Hexcopter'],['Duration','1-day workshop'],['Date','March 2026']]
+var WORKSHOPS = {
+  uav: {
+    title: "EF16 Hexcopter Drone — Assembly & Deployment",
+    org: "IMEC Robotics Club",
+    date: "March 2026",
+    img: "uav.jpg",
+    intro: "A 3-day intensive hands-on workshop focused on the design, assembly, and deployment of the EF16 Hexcopter Drone — an AI-assisted infrastructure surveillance UAV developed at ACET. The drone is designed to carry a 10 kg payload at 20–40 km/h for delivering repair equipment and conducting maintenance operations in campus areas requiring attention. It operates as part of a 3-drone fleet: the EF16 as the primary payload carrier, supported by 2 high-speed FPV drones for rapid reconnaissance and area coverage.",
+    contribs: [
+      "Role — Mechanical Designer & Assembly: responsible for all structural design decisions, component integration, and final airframe assembly of the hexcopter.",
+      "Assembled the EF16 hexcopter chassis using carbon fibre arms and aluminium casing, applying a Factor of Safety (FOS) of 5 across all structural joints and mounting points.",
+      "Installed and balanced 6x X6 Pro BLDC motors with 23-inch 2480 NACA profile propellers, optimised for lift efficiency at the 10 kg payload requirement.",
+      "Integrated 2x HD cameras for AI-based damage monitoring and real-time surveillance of campus infrastructure.",
+      "Wired and mounted the Pixhawk flight controller (microcontroller), GPS sensors, T15 radio controller receiver, and 2x 12V LiPo battery power system onto the baseplate and support plate.",
+      "Configured Mission Planner software for autonomous waypoint missions, failsafe settings, and payload delivery route planning.",
+      "Performed SolidWorks modelling of the mounting and support plate geometry to verify structural clearances and component fitment.",
+      "Coordinated deployment testing alongside the 2 companion FPV drones for surveillance coverage and mission handoff procedures."
+    ],
+    outcomes: [
+      "Carbon fibre and aluminium hybrid construction offers the best strength-to-weight ratio for a payload-class hexcopter — every gram saved on structure is a gram of payload capacity gained.",
+      "A FOS of 5 is appropriate for a drone carrying repair equipment to live infrastructure where the consequences of structural failure are severe.",
+      "NACA profile propellers at 23 inches generate the disc area needed for heavy-lift efficiency; blade pitch selection is equally critical to hover efficiency.",
+      "The Pixhawk and Mission Planner stack provides full autonomous mission capability, but manual PID gain tuning is still essential for stable payload-loaded hover.",
+      "Multi-drone coordination — primary payload UAV plus 2 FPV scouts — requires clear communication protocols and airspace deconfliction procedures."
+    ],
+    tools: ["SolidWorks", "Mission Planner", "Pixhawk", "X6 Pro BLDC Motors", "23in 2480 NACA Props", "T15 Radio Controller", "LiPo Batteries", "Carbon Fibre Structure", "GPS Sensors", "Dual HD Cameras"],
+    stats: [
+      ["Duration","3-day workshop"],["Role","Mechanical Designer & Assembly"],["Drone","EF16 Hexcopter"],
+      ["Payload","10 kg"],["Speed","20–40 km/h"],["Controller","Pixhawk"],
+      ["Motors","6x X6 Pro BLDC"],["Propellers","23in 2480 NACA"],
+      ["Structure","Carbon Fibre + Al"],["FOS","5"],["Batteries","2x 12V LiPo"],
+      ["Fleet","3 drones total"],["Software","Mission Planner + SolidWorks"],["Mission","AI Surveillance & Delivery"]
+    ]
   },
-  ev:{
-    title:'Electric Vehicle Design',org:'Pantech Engineering',date:'March 2026',icon:'⚡',hint:'Upload: workshop_ev.jpg',
-    intro:'Industry-led technical workshop on electric vehicle systems design, covering powertrain architecture, battery management, motor selection, and chassis integration. Delivered by Pantech Engineering with a mix of lectures, demonstrations, and hands-on design exercises.',
-    contribs:['Studied EV powertrain architecture — motor, inverter, battery pack, and drivetrain integration layouts.','Analysed battery management system (BMS) fundamentals: cell balancing, state-of-charge estimation, and thermal management.','Evaluated motor selection criteria: torque-speed curves, efficiency maps, and comparison of BLDC vs PMSM drives.','Explored regenerative braking system design and energy recovery calculations.','Completed a conceptual chassis integration exercise applying all subsystems to a compact EV platform.'],
-    outcomes:['EV system design demands tight integration between electrical, thermal, and mechanical subsystems.','Battery management is the most safety-critical component in any EV — thermal runaway prevention is non-negotiable.','Understanding the motor efficiency map is fundamental to drivetrain optimisation and range prediction.'],
-    tools:['EV Powertrain Design','Battery Management Systems','BLDC / PMSM Motors','Regenerative Braking','Chassis Integration'],
-    stats:[['Organiser','Pantech Engineering'],['Focus','EV Systems Design'],['Duration','1-day workshop'],['Date','March 2026']]
+  ev: {
+    title: "Electric Vehicle Design",
+    org: "Pantech Engineering",
+    date: "March 2026",
+    img: "",
+    intro: "Industry-led technical workshop on electric vehicle systems design, covering powertrain architecture, battery management, motor selection, and chassis integration, delivered by Pantech Engineering with lectures, demonstrations, and hands-on design exercises.",
+    contribs: [
+      "Studied EV powertrain architecture covering motor, inverter, battery pack, and drivetrain integration layouts.",
+      "Analysed battery management system (BMS) fundamentals: cell balancing, state-of-charge estimation, and thermal management.",
+      "Evaluated motor selection criteria: torque-speed curves, efficiency maps, and comparison of BLDC vs PMSM drives.",
+      "Explored regenerative braking system design and energy recovery calculations.",
+      "Completed a conceptual chassis integration exercise applying all subsystems to a compact EV platform."
+    ],
+    outcomes: [
+      "EV system design demands tight integration between electrical, thermal, and mechanical subsystems.",
+      "Battery management is the most safety-critical component in any EV — thermal runaway prevention is non-negotiable.",
+      "Understanding the motor efficiency map is fundamental to drivetrain optimisation and range prediction."
+    ],
+    tools: ["EV Powertrain Design", "Battery Management Systems", "BLDC / PMSM Motors", "Regenerative Braking", "Chassis Integration"],
+    stats: [["Organiser","Pantech Engineering"],["Focus","EV Systems Design"],["Duration","1-day workshop"],["Date","March 2026"]]
   }
 };
 
-/* ── NAVIGATION ───────────────────────────────────────────── */
-let prevPage = 'home';
+// Current state
+var prevPage = "home";
 
+// Navigate between pages
 function navigate(page) {
-  document.querySelectorAll('.pv').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + page).classList.add('active');
-  document.querySelectorAll('.nav-links a').forEach(a =>
-    a.classList.toggle('active', a.dataset.page === page)
-  );
+  document.querySelectorAll(".pv").forEach(function(p) { p.classList.remove("active"); });
+  var el = document.getElementById("page-" + page);
+  if (el) el.classList.add("active");
+  document.querySelectorAll(".nav-links a").forEach(function(a) { a.classList.remove("active"); });
+  var nl = document.getElementById("nl-" + page);
+  if (nl) nl.classList.add("active");
   window.scrollTo(0, 0);
 }
 
-/* ── OPEN PROJECT ─────────────────────────────────────────── */
+// Open project detail
 function openProject(key) {
-  prevPage = document.querySelector('.pv.active').id.replace('page-','');
-  const p = PROJECTS[key];
-  document.getElementById('detail-banner-content').innerHTML = `
-    <div class="detail-banner-cat">${p.cat}</div>
-    <div class="detail-banner-title">${p.title}</div>`;
-  document.getElementById('detail-main-content').innerHTML = `
-    <div class="detail-layout">
-      <div>
-        <div class="detail-hero">
-          <div class="detail-hero-ph"><span class="big-ico">${p.icon}</span><p>${p.hint}</p></div>
-        </div>
-        <p class="detail-intro">${p.intro}</p>
-        <div class="detail-section-title">Technical Contributions</div>
-        <ul class="detail-ul">${p.contribs.map(c=>`<li>${c}</li>`).join('')}</ul>
-        <div class="detail-section-title">Key Learning Outcomes</div>
-        <ul class="detail-ul">${p.outcomes.map(o=>`<li>${o}</li>`).join('')}</ul>
-        <div class="detail-extra">
-          <div class="ph-row" style="border-radius:8px;border:1px solid var(--border)"><span>📐</span><p>Upload extra image</p></div>
-          <div class="ph-row" style="border-radius:8px;border:1px solid var(--border)"><span>📊</span><p>Upload plot / render</p></div>
-        </div>
-      </div>
-      <div class="detail-sidebar">
-        <div class="sidebar-card"><div class="sc-head">Tools & Technologies</div><div class="sc-body"><div class="chips">${p.tools.map(t=>`<span class="chip">${t}</span>`).join('')}</div></div></div>
-        <div class="sidebar-card"><div class="sc-head">Project Info</div><div class="sc-body">${p.stats.map(s=>`<div class="sc-stat"><span class="sc-stat-l">${s[0]}</span><span class="sc-stat-r">${s[1]}</span></div>`).join('')}</div></div>
-      </div>
-    </div>`;
-  navigate('project-detail');
+  prevPage = "projects";
+  var p = PROJECTS[key];
+  if (!p) return;
+  document.getElementById("detail-banner-content").innerHTML =
+    "<div class='detail-banner-cat'>" + p.cat + "</div>" +
+    "<div class='detail-banner-title'>" + p.title + "</div>";
+  var heroHtml = p.img
+    ? "<div class='detail-hero'><img src='" + p.img + "' alt='" + p.title + "' style='width:100%;height:400px;object-fit:cover;display:block'></div>"
+    : "<div class='detail-hero'><div class='detail-hero-ph'><span class='big-ico'>&#128736;</span><p>Upload project image</p></div></div>";
+  var contribsHtml = p.contribs.map(function(c) { return "<li>" + c + "</li>"; }).join("");
+  var outcomesHtml = p.outcomes.map(function(o) { return "<li>" + o + "</li>"; }).join("");
+  var toolsHtml = p.tools.map(function(t) { return "<span class='chip'>" + t + "</span>"; }).join("");
+  var statsHtml = p.stats.map(function(s) { return "<div class='sc-stat'><span class='sc-stat-l'>" + s[0] + "</span><span class='sc-stat-r'>" + s[1] + "</span></div>"; }).join("");
+  document.getElementById("detail-main-content").innerHTML =
+    "<div class='detail-layout'><div>" +
+    heroHtml +
+    "<p class='detail-intro'>" + p.intro + "</p>" +
+    "<div class='detail-section-title'>Technical Contributions</div>" +
+    "<ul class='detail-ul'>" + contribsHtml + "</ul>" +
+    "<div class='detail-section-title'>Key Learning Outcomes</div>" +
+    "<ul class='detail-ul'>" + outcomesHtml + "</ul>" +
+    "<div class='detail-extra'><div class='ph-row' style='border-radius:8px;border:1px solid var(--border)'><span>&#128210;</span><p>Upload extra image</p></div>" +
+    "<div class='ph-row' style='border-radius:8px;border:1px solid var(--border)'><span>&#128202;</span><p>Upload plot</p></div></div>" +
+    "</div><div class='detail-sidebar'>" +
+    "<div class='sidebar-card'><div class='sc-head'>Tools &amp; Technologies</div><div class='sc-body'><div class='chips'>" + toolsHtml + "</div></div></div>" +
+    "<div class='sidebar-card'><div class='sc-head'>Project Info</div><div class='sc-body'>" + statsHtml + "</div></div>" +
+    "</div></div>";
+  navigate("project-detail");
 }
 
-/* ── OPEN WORKSHOP ────────────────────────────────────────── */
+// Open workshop detail
 function openWorkshop(key) {
-  const w = WORKSHOPS[key];
-  document.getElementById('ws-banner-content').innerHTML = `
-    <div class="detail-banner-cat">${w.org} · ${w.date}</div>
-    <div class="detail-banner-title">${w.title}</div>`;
-  document.getElementById('ws-main-content').innerHTML = `
-    <div class="ws-detail-layout">
-      <div>
-        <div class="ws-hero">
-          <div class="ws-hero-ph"><span class="big-ico">${w.icon}</span><p>${w.hint}</p></div>
-        </div>
-        <p class="detail-intro">${w.intro}</p>
-        <div class="detail-section-title">Activities & Contributions</div>
-        <ul class="detail-ul">${w.contribs.map(c=>`<li>${c}</li>`).join('')}</ul>
-        <div class="detail-section-title">Key Learning Outcomes</div>
-        <ul class="detail-ul">${w.outcomes.map(o=>`<li>${o}</li>`).join('')}</ul>
-      </div>
-      <div class="detail-sidebar">
-        <div class="sidebar-card"><div class="sc-head">Skills Practised</div><div class="sc-body"><div class="chips">${w.tools.map(t=>`<span class="chip">${t}</span>`).join('')}</div></div></div>
-        <div class="sidebar-card"><div class="sc-head">Workshop Info</div><div class="sc-body">${w.stats.map(s=>`<div class="sc-stat"><span class="sc-stat-l">${s[0]}</span><span class="sc-stat-r">${s[1]}</span></div>`).join('')}</div></div>
-      </div>
-    </div>`;
-  navigate('workshop-detail');
+  var w = WORKSHOPS[key];
+  if (!w) return;
+  document.getElementById("ws-banner-content").innerHTML =
+    "<div class='detail-banner-cat'>" + w.org + " &middot; " + w.date + "</div>" +
+    "<div class='detail-banner-title'>" + w.title + "</div>";
+  var heroHtml = w.img
+    ? "<div class='ws-hero'><img src='" + w.img + "' alt='" + w.title + "'></div>"
+    : "<div class='ws-hero'><div class='ws-hero-ph'><span class='big-ico'>&#128736;</span><p>Upload workshop image</p></div></div>";
+  var contribsHtml = w.contribs.map(function(c) { return "<li>" + c + "</li>"; }).join("");
+  var outcomesHtml = w.outcomes.map(function(o) { return "<li>" + o + "</li>"; }).join("");
+  var toolsHtml = w.tools.map(function(t) { return "<span class='chip'>" + t + "</span>"; }).join("");
+  var statsHtml = w.stats.map(function(s) { return "<div class='sc-stat'><span class='sc-stat-l'>" + s[0] + "</span><span class='sc-stat-r'>" + s[1] + "</span></div>"; }).join("");
+  document.getElementById("ws-main-content").innerHTML =
+    "<div class='ws-detail-layout'><div>" +
+    heroHtml +
+    "<p class='detail-intro'>" + w.intro + "</p>" +
+    "<div class='detail-section-title'>Activities &amp; Contributions</div>" +
+    "<ul class='detail-ul'>" + contribsHtml + "</ul>" +
+    "<div class='detail-section-title'>Key Learning Outcomes</div>" +
+    "<ul class='detail-ul'>" + outcomesHtml + "</ul>" +
+    "</div><div class='detail-sidebar'>" +
+    "<div class='sidebar-card'><div class='sc-head'>Skills Practised</div><div class='sc-body'><div class='chips'>" + toolsHtml + "</div></div></div>" +
+    "<div class='sidebar-card'><div class='sc-head'>Workshop Info</div><div class='sc-body'>" + statsHtml + "</div></div>" +
+    "</div></div>";
+  navigate("workshop-detail");
 }
 
-function goBack() { navigate(prevPage === 'project-detail' ? 'projects' : prevPage); }
+// Lightbox
+function openLB(src, cap) {
+  document.getElementById("lb-img").src = src;
+  document.getElementById("lb-cap").textContent = cap;
+  document.getElementById("lb").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeLB() {
+  document.getElementById("lb").classList.remove("open");
+  document.body.style.overflow = "";
+}
 
-/* ── FILTER TABS ──────────────────────────────────────────── */
-document.querySelectorAll('.ftab').forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.closest('.filter-row').querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.filter;
-    document.querySelectorAll('#page-projects .pc').forEach(card => {
-      card.style.display = (f === 'all' || card.dataset.cat.includes(f)) ? '' : 'none';
+// Wire up nav
+document.getElementById("nb").addEventListener("click", function() { navigate("home"); });
+document.getElementById("nl-home").addEventListener("click", function() { navigate("home"); });
+document.getElementById("nl-projects").addEventListener("click", function() { navigate("projects"); });
+document.getElementById("nl-workshops").addEventListener("click", function() { navigate("workshops"); });
+document.getElementById("nl-about").addEventListener("click", function() { navigate("about"); });
+document.getElementById("nl-gallery").addEventListener("click", function() { navigate("gallery"); });
+document.getElementById("nl-contact").addEventListener("click", function() { navigate("contact"); });
+
+// Wire up hero buttons
+document.getElementById("hero-proj-btn").addEventListener("click", function() { navigate("projects"); });
+document.getElementById("see-all-btn").addEventListener("click", function() { navigate("projects"); });
+
+// Wire up project cards (home)
+document.getElementById("pc-uav").addEventListener("click", function() { openProject("uav"); });
+document.getElementById("pc-engine").addEventListener("click", function() { openProject("engine"); });
+document.getElementById("pc-robot").addEventListener("click", function() { openProject("robot"); });
+document.getElementById("pc-airfoil").addEventListener("click", function() { openProject("airfoil"); });
+
+// Wire up project cards (projects page)
+document.getElementById("pp-uav").addEventListener("click", function() { openProject("uav"); });
+document.getElementById("pp-engine").addEventListener("click", function() { openProject("engine"); });
+document.getElementById("pp-robot").addEventListener("click", function() { openProject("robot"); });
+document.getElementById("pp-airfoil").addEventListener("click", function() { openProject("airfoil"); });
+
+// Wire up workshop cards
+document.getElementById("ws-uav-card").addEventListener("click", function() { openWorkshop("uav"); });
+document.getElementById("ws-ev-card").addEventListener("click", function() { openWorkshop("ev"); });
+
+// Wire up back buttons
+document.getElementById("proj-back").addEventListener("click", function() { navigate("projects"); });
+document.getElementById("ws-back").addEventListener("click", function() { navigate("workshops"); });
+
+// Wire up gallery lightbox
+document.getElementById("gl-1").addEventListener("click", function() { openLB("photo.jpg","Simbarashe Joworingo — ACET"); });
+document.getElementById("gl-2").addEventListener("click", function() { openLB("uav.jpg","EF16 Hexcopter Drone"); });
+document.getElementById("gl-3").addEventListener("click", function() { openLB("gallery_3.jpg","EV Workshop"); });
+document.getElementById("gl-4").addEventListener("click", function() { openLB("gallery_4.jpg","CAD Work"); });
+document.getElementById("gl-5").addEventListener("click", function() { openLB("gallery_5.jpg","Lab Session"); });
+document.getElementById("gl-6").addEventListener("click", function() { openLB("gallery_6.jpg","IMEC Robotics Club"); });
+document.getElementById("lb-close").addEventListener("click", closeLB);
+document.getElementById("lb").addEventListener("click", function(e) { if (e.target === this) closeLB(); });
+
+// Filter tabs
+document.querySelectorAll(".ftab").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    btn.closest(".filter-row").querySelectorAll(".ftab").forEach(function(b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+    var f = btn.getAttribute("data-filter");
+    document.querySelectorAll("#page-projects .pc").forEach(function(card) {
+      var cat = card.getAttribute("data-cat") || "";
+      card.style.display = (f === "all" || cat.indexOf(f) !== -1) ? "" : "none";
     });
   });
 });
 
-/* ── LIGHTBOX ─────────────────────────────────────────────── */
-function openLB(src, cap) {
-  document.getElementById('lb-img').src = src;
-  document.getElementById('lb-cap').textContent = cap;
-  document.getElementById('lb').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLB() {
-  document.getElementById('lb').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeLB(); });
+
+// Set home as active nav on load
+document.getElementById("nl-home").classList.add("active");
+
+})();
 </script>
 </body>
 </html>
